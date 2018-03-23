@@ -1,0 +1,42 @@
+*{
+	margin:0;
+}
+html,body{
+	height: 100%;
+	width: 100%;
+	margin :0 ;
+	padding : 0;
+	background-color: cyan;
+	text-decoration-color: red;
+}
+.left-side{
+	width: 25%;
+	height: 100%	;
+	background-color: red;
+	border-color: red;
+}
+.mains{
+	height: 100%;
+}
+.block{
+	float :left;
+}
+.headerr{
+	padding: 3% 33%;
+	font-size: 3em;
+}
+.usernamee{
+	margin-left: 40%;
+	margin-top: 7%;
+}
+.passwordd{
+	margin-left: 40%;
+	margin-top: 1%;
+}
+.btn{
+	margin-left: 46%;
+	margin-top: 3%; 
+}
+.radios{
+	margin-left: 45%;
+}
