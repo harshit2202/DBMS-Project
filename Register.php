@@ -9,12 +9,12 @@
 	<form method = "POST" action = <?php echo htmlspecialchars($_SERVER["PHP_SELF"]);  ?>>
 		
 		<div class = "input">
-				ID &nbsp;&nbsp; <input type = "text"  name = "id" placeholder="Enter Your Police ID"><br>
-				NAME &nbsp;<input type = "text"  name = "name" placeholder="Enter Your Name"><br>
-				EMAIL &nbsp;<input type = "text"  name = "email" placeholder="Enter your Email ID"><br>
-				USERNAME &nbsp;<input type = "text"  name = "username" placeholder="Enter your Username"><br>
-				PASSWORD &nbsp;<input type = "PASSWORD" name="password" placeholder="Enter Password"><br>
-				RETYPE PASSWORD &nbsp;<input type = "PASSWORD" name="repassword" placeholder="Retype Password"><br>
+				ID &nbsp;&nbsp; <input type = "text"  name = "id" placeholder="Enter Your Police ID" required=""><br>
+				NAME &nbsp;<input type = "text"  name = "name" placeholder="Enter Your Name" required=""><br>
+				EMAIL &nbsp;<input type = "text"  name = "email" placeholder="Enter your Email ID" required=""><br>
+				USERNAME &nbsp;<input type = "text"  name = "username" placeholder="Enter your Username" required=""><br>
+				PASSWORD &nbsp;<input type = "PASSWORD" name="password" placeholder="Enter Password" required=""><br>
+				RETYPE PASSWORD &nbsp;<input type = "PASSWORD" name="repassword" placeholder="Retype Password" required=""><br>
 				<input type="submit" name = "register">
 		</div>		
 	</form>
