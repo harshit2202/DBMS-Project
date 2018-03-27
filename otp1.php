@@ -17,7 +17,7 @@
 			<p style="text-align: center; font-size: 25px;"><?php echo "Username"; ?></p>
 			<br>
 			<div class="form-group">
-			    <input type="email" class="form-control" id="exampleInputEmail1" name ="otpp" aria-describedby="emailHelp" placeholder="Enter OTP (One Time Password)">
+			    <input type="Password" class="form-control" id="exampleInputEmail1" name ="otpp" aria-describedby="emailHelp" placeholder="Enter OTP (One Time Password)">
 			    <button type="button" class="btn btn-primary">Submit</button>
 		  	</div>
 		  	<br><br><br>

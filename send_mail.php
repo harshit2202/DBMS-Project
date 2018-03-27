@@ -33,7 +33,7 @@ try {
 
     //Content
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Chal Gaya ganduu';
+    $mail->Subject = 'Running';
     $mail->Body    = 'Body Of The mail in HTML format';
 
     $mail->send();
