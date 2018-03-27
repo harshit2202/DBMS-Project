@@ -1,0 +1,36 @@
+.*{
+	margin: 0; 
+}
+html,body{
+	height: 100%;
+	width: 100%;
+}
+.main-page{
+	height: 100%;
+	width: 100%;
+}
+.heading{
+	height: 12%;
+	width: 100%;
+	background-color: #BABDBF;
+}
+.mainheading{
+	font-weight: normal;
+	font-size: 250%;
+	margin-left: 10%;
+	padding-top: 0.5%;
+	float: left;
+	font-style: normal;
+}
+.leftt{
+	float: left;
+	height: 88%;
+	width: 20%;
+	background-color: #e1c3ed;
+}
+.news-panel{
+	float: left;
+	width: 50%;
+	height: 88%;
+	background-color: #F0E1F6;
+}
