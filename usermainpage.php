@@ -15,6 +15,24 @@
 		</div>
 
 		<div class ="leftt">
+			<a href="NULL" class = "anchor" >
+			<div class = "clickable">
+				TEST
+			</div>
+			</a>
+
+			<a href="NULL" class = "anchor" >
+			<div class = "clickable">
+				FIR
+			</div>
+			</a>
+
+			<a href="NULL" class = "anchor" >
+			<div class = "clickable">
+				HELP
+			</div>
+			</a>
+
 			
 		</div>
 
