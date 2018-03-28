@@ -1,0 +1,38 @@
+.*{
+	margin: 0; 
+}
+html,body{
+	height: 100%;
+	width: 100%;
+	background-color: #CD6D6D;
+
+
+
+
+}
+.maine{
+	height: 100%;
+	width: 100%;
+}
+.leftt{
+	float: left;
+	height: 100%;
+	width: 20%;
+	background-color: #E1C3ED;
+	margin-top: 0;
+	padding: 0; 
+}
+.left-panel{
+	padding-left: 40px;
+	padding-top: 40px;
+}
+.main-side{
+	width: 60%;
+	float: left;
+	margin-left: 8%;
+	margin-right: 5%;
+}
+.btn-primary{
+	float: right;
+	padding: 4px 22px;
+}
