@@ -1,0 +1,53 @@
+.*{
+	margin: 0; 
+}
+html,body{
+	height: 100%;
+	width: 100%;
+}
+.jumbotron{
+	margin-bottom: 0;
+	padding-top: 50px;
+	height: 30%;
+}
+.leftt{
+	float: left;
+	height: 70%;
+	width: 20%;
+	background-color: #E1C3ED;
+	margin-top: 0;
+	padding: 0; 
+}
+.left-panel{
+	padding-left: 40px;
+	padding-top: 40px;
+}
+.loginpanel{
+	float: left;
+	padding-left: 50px;
+	padding-top: 30px;
+	width: 40%;
+	height: 70%;
+	margin-bottom: 0;
+}
+.signup-panel{
+	float: left;
+	width: 35%;
+	background-color: #ABE5EC;
+	height: 70%;
+	margin-left: 5%;
+
+}
+.listed{
+
+	padding-left: 15%;
+	padding-bottom: 3%;
+}
+.btn-primary{
+	margin-top: 20%;
+	float: right;
+	padding-left: 35px;
+	padding-right: 35px;
+	text-align: center;
+	
+}
