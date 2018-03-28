@@ -20,7 +20,18 @@ try
     //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Chal Gaya ganduu';
-    $mail->Body    = '<h1>Maa K Lode</h1>';
+    $mail->Body    = '<!DOCTYPE html>
+<html>
+<head>
+ 
+</head>
+<body>
+<div class = "container" style = "margin: 50%; padding:20%; align-content: center; ">
+HELLOW WORLDDDDDDD.
+</div>
+
+</body>
+</html>';
     $mail->send();
     echo 'Message has been sent';
 } 
