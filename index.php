@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 
 	$servername="localhost";
@@ -29,6 +30,8 @@
 			$result = $conn->query($sql);
 			if($result->num_rows == 1)
 			{
+				$_SESSION['username'] = $user;
+				$_SESSION['type'] = "cop";
 				header('Location: http://localhost/TestFolder/usermainpage.php');
 				exit();
 			}
@@ -43,6 +46,8 @@
 			$result = $conn->query($sql);
 			if($result->num_rows == 1)
 			{
+				$_SESSION['username'] = $user;
+				$_SESSION['type'] = "citizen";
 				header('Location: http://localhost/TestFolder/usermainpage.php');
 				exit();
 			}
@@ -57,6 +62,8 @@
 			$result = $conn->query($sql);
 			if($result->num_rows == 1)
 			{
+				$_SESSION['username'] = $user;
+				$_SESSION['type'] = "judge";
 				header('Location: http://localhost/TestFolder/usermainpage.php');
 				exit();
 			}

@@ -31,7 +31,6 @@
 	{
 	    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
 	}
-	$_SESSION['flag']==0;
 
 
 //******************************
@@ -119,7 +118,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="otp1.css">
+	<link rel="stylesheet" type="text/css" href="OTP-Verification.css">
 	<title>OTP Verification</title>
 </head>
 <body>
