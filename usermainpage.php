@@ -18,7 +18,7 @@
 		<div class ="leftt">
 			<a href="NULL" class = "anchor" >
 			<div class = "clickable">
-				TEST
+				Home
 			</div>
 			</a>
 
@@ -30,25 +30,25 @@
 
 			<a href="" class = "anchor" >
 			<div class = "clickable">
-				Lodge a F.I.R
+				New FIR
 			</div>
 			</a>	
 
 			<a href="NULL" class = "anchor" >
 			<div class = "clickable">
-				HELP
+				FIR History
 			</div>
 			</a>	
 
 			<a href="NULL" class = "anchor" >
 			<div class = "clickable">
-				HELP
+				Nearest Police Station
 			</div>
 			</a>	
 
 			<a href="NULL" class = "anchor" >
 			<div class = "clickable">
-				HELP
+				Contact Us
 			</div>
 			</a>			
 		</div>

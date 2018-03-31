@@ -123,7 +123,7 @@
 					  <div class="form-row">
 					    <div class="form-group col-md-6">
 					      <label for="inputEmail4">Name</label>
-					      <input type="text" name="name" class="form-control" id="inputEmail4" placeholder="Full name">
+					      <input type="text" name="name" class="form-control" id="inputEmail4" placeholder="Full name" required="PLease enter ">
 					    </div>
 					    <div class="form-group col-md-6">
 					      <label for="inputPassword4">Email-ID (Verification mail will be sent.)</label>
