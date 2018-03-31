@@ -72,8 +72,8 @@ select ,input,textarea {
     box-sizing: border-box;
 }
 
-input:focus , textarea:focus , select : focus {
-	width: 70%;
+input:focus , textarea:focus , select:focus {
+	  width: 70%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -96,6 +96,28 @@ textarea{
 	overflow-y: scroll;
 	resize: none;
 }
+
+button {
+    width: 70%;
+    background-color: #a5a5a5;
+    color: white;
+    margin-top: 20px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    width: 70%;
+    background-color: #616161;
+    color: white;
+    margin-top: 20px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 /*input[type=date] {
 	width: 70%;
 	padding: 12px 20px;
