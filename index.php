@@ -16,11 +16,8 @@
 	if(isset($_REQUEST['submit-btnn']))
 	{
 		
-		echo "hahaha";
 		$user = $_POST['Username'];
 		$pass = $_POST['Password'];
-		echo $user;
-		echo $pass;
 		$type = $_POST['cars'];
 		$_SESSION['username'] = $user;
 		if($type=="cop")

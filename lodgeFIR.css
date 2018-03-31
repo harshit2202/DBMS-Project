@@ -1,0 +1,145 @@
+body {
+	margin: 0;
+}
+.global {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+.top {
+	height: 12%;
+	background-color: #e9ecef;
+	padding-top:1%;
+	padding-bottom: 1%;
+	padding-left: 5%;
+	font-size: 50px;
+	font-weight: 0;
+	font-family: "Arial", Helvetica, sans-serif;
+}
+.leftt{
+	float: left;
+	height%;
+	width: 20%;
+	background-color: #e1c3ed;
+
+}
+
+.clickable{
+	background-color: coral;
+	height: 5em;
+	text-align: center;
+	padding-top: 10%;
+	border: dotted;
+	border-width: 1px;
+	border-color: black;
+	-webkit-transition-duration: 0.6s;
+	transition-duration: 0.6s;
+
+}
+
+.clickable:hover{
+	background-color: orange; 
+	letter-spacing: 2px;
+	font-size:20px;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+
+
+}
+
+.main-panel{
+	height: 88%;
+	overflow: auto;
+}
+a.anchor:visited { color:#FFF; text-decoration:none; font-weight:normal; }
+a.anchor:hover {color:black; text-decoration:none; font-weight:normal;}
+a.anchor:link { color:orange; text-decoration:none; font-weight:normal; }
+a.anchor:active {color:red; text-decoration:none; font-weight:normal;}
+
+::-webkit-scrollbar{
+	width: 10px;
+}
+
+.lodge {
+	margin-left: 30%;
+}
+select ,input,textarea {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input:focus , textarea:focus {
+	width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid lightblue;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px rgba(81,203,238,1);
+}
+label {
+	padding: 5px 20px 5px 5px;
+	color:  #767676;
+	display: block;
+}
+label[for="date"] {
+	padding: 20px 20px 5px 5px;
+	color:  #767676;
+	display: block;
+}
+textarea{
+	overflow-y: scroll;
+	resize: none;
+}
+/*input[type=date] {
+	width: 70%;
+	padding: 12px 20px;
+  height: 35px;
+  margin: 0 auto;
+  width: 100%;
+  text-transform: uppercase;
+  outline: none;
+  border: 1px solid #ccc;
+    border-radius: 4px;
+  padding: 0 3px;
+  color: #000;
+  
+  &::-webkit-datetime-edit-month-field {
+    color: red;
+  }
+  &::-webkit-datetime-edit-day-field {
+    color: white;
+  }
+  &::-webkit-datetime-edit-year-field {
+    color: blue;
+  }
+  
+  &::-webkit-clear-button {
+    font-size: 18px;
+    height: 30px;
+    position: relative;
+    right: 5px;
+    margin-right: 4px;
+  }
+  &::-webkit-inner-spin-button {
+    height: 30px;
+  }
+  &::-webkit-calendar-picker-indicator {
+    font-size: 18px;
+    
+        
+    &:hover {
+      background-color: lighten(#2f2f2f,40%);
+      color: darken(#fff, 10%);
+      cursor: pointer;
+    }
+    &:active {
+      color: blue;
+    }
+  }
+}*/
