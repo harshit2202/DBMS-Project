@@ -10,15 +10,13 @@ body {
 	height: 12%;
 	background-color: #e9ecef;
 	padding-top:1%;
-	padding-bottom: 1%;
+	padding-bottom: 6%;
 	padding-left: 5%;
-	font-size: 50px;
-	font-weight: 0;
-	font-family: "Arial", Helvetica, sans-serif;
 }
 .leftt{
 	float: left;
 	height%;
+  margin-right: 0%;
 	width: 20%;
 	background-color: #e1c3ed;
 
@@ -49,6 +47,7 @@ body {
 .main-panel{
 	height: 88%;
 	overflow: auto;
+  padding-right: 0%;
 }
 a.anchor:visited { color:#FFF; text-decoration:none; font-weight:normal; }
 a.anchor:hover {color:black; text-decoration:none; font-weight:normal;}
@@ -60,7 +59,8 @@ a.anchor:active {color:red; text-decoration:none; font-weight:normal;}
 }
 
 .lodge {
-	margin-left: 30%;
+	margin-left: 15%;
+  margin-top : 3%;
 }
 select ,input,textarea {
     width: 70%;
@@ -72,7 +72,7 @@ select ,input,textarea {
     box-sizing: border-box;
 }
 
-input:focus , textarea:focus {
+input:focus , textarea:focus , select : focus {
 	width: 70%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -83,7 +83,7 @@ input:focus , textarea:focus {
     box-shadow: 0 0 5px rgba(81,203,238,1);
 }
 label {
-	padding: 5px 20px 5px 5px;
+	padding: 5px 20px 0px 0px;
 	color:  #767676;
 	display: block;
 }
