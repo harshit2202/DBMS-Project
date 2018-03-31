@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 
 	$servername="localhost";
@@ -26,7 +27,9 @@
 			$result = $conn->query($sql);
 			if($result->num_rows == 1)
 			{
-				header('Location: http://localhost/TestFolder/otp1.php');
+				$_SESSION['username'] = $user;
+				$_SESSION['type'] = "cop";
+				header('Location: http://localhost/TestFolder/usermainpage.php');
 				exit();
 			}
 			else
@@ -40,7 +43,9 @@
 			$result = $conn->query($sql);
 			if($result->num_rows == 1)
 			{
-				header('Location: http://localhost/TestFolder/otp1.php');
+				$_SESSION['username'] = $user;
+				$_SESSION['type'] = "citizen";
+				header('Location: http://localhost/TestFolder/usermainpage.php');
 				exit();
 			}
 			else
@@ -54,7 +59,9 @@
 			$result = $conn->query($sql);
 			if($result->num_rows == 1)
 			{
-				header('Location: http://localhost/TestFolder/otp1.php');
+				$_SESSION['username'] = $user;
+				$_SESSION['type'] = "judge";
+				header('Location: http://localhost/TestFolder/usermainpage.php');
 				exit();
 			}
 			else
@@ -148,9 +155,9 @@
 	<div class="signup-panel">
 		<p style="font-size: 30px; padding-left: 30%; padding-top: 5%;">New User..!!</p>
 		<p style="font-size: 22px; padding-left: 32%; margin-top: 0; margin-bottom: 10%;">Continue as...</p>
-		<li class ="listed"><a href="cop1.html">I'm a Cop.</a></li>
-		<li class ="listed"><a href="user1.html">I'm a Citizen.</a></li>
-		<li class ="listed"><a href="judge1.html">I'm a Judge.</a></li>
+		<li class ="listed"><a href="CopRegistration.php">I'm a Cop.</a></li>
+		<li class ="listed"><a href="CitizenRegistration.php">I'm a Citizen.</a></li>
+		<li class ="listed"><a href="JudgeRegistration.php">I'm a Judge.</a></li>
 		<br><br><br><br><br><br>
 		<p style="padding-bottom: 0; margin-bottom: 0; text-align: right; color: #777F80; margin-right: 2%;">Select one of the above links to continue...</p>
 	</div>
