@@ -29,7 +29,7 @@
 			{
 				$_SESSION['username'] = $user;
 				$_SESSION['type'] = "cop";
-				header('Location: http://localhost/DBMS-Project/usermainpage.php');
+				header('Location: http://localhost/DBMS-Project/copmainpage.php');
 				exit();
 			}
 			else
@@ -61,7 +61,7 @@
 			{
 				$_SESSION['username'] = $user;
 				$_SESSION['type'] = "judge";
-				header('Location: http://localhost/DBMS-Project/usermainpage.php');
+				header('Location: http://localhost/DBMS-Project/judgemainpage.php');
 				exit();
 			}
 			else

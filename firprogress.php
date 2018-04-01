@@ -1,6 +1,20 @@
 <?php session_start(); ?>
 <?php 
 	$GLOBALS['seensuspect'] = "Yes";
+
+	$servername="localhost";
+	$username="root";
+	$password="";
+	$dbname="DBMSProject";
+
+	$conn = new mysqli($servername,$username,$password,$dbname);
+
+	if($conn->connect_error){
+		die("connection error".$conn->connect_error);
+	}
+
+	
+
 ?>
 <!DOCTYPE html>
 <html>

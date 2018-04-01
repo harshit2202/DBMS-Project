@@ -22,7 +22,7 @@
 			</div>
 			</a>
 
-			<a href="http://localhost/DBMS-Project/userprofile.php" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/copprofile.php" class = "anchor" >
 			<div class = "clickable">
 				Profile
 			</div>

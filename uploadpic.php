@@ -1,7 +1,7 @@
-<?php session_start(); ?>
+<?php session_start(); 
+	echo "<script> changepic(); </script>";
+?>
 <?php
-
-
     $servername="localhost";
     $username="root";   
     $password="";
@@ -27,12 +27,40 @@
 
 		if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file))
 		{
+			$addr = $target_file;
 			echo "ho gya";
+		    $var10 = $_SESSION['type'];
+		    $var11 = $_SESSION['username'];
+		    if($var10 == "cop")
+		    {
+		    	$sql = "UPDATE coptable SET photoaddress='$addr' where username = '$var11' ";
+		    }
+		    if($var10 == "citizen")
+		    {
+		    	$sql = "UPDATE usertable SET photoaddress='$addr' where username = '$var11' ";
+		    }
+		    if($var10 == "judge")
+		    {
+		    	$sql = "UPDATE judgetable SET photoaddress='$addr' where username = '$var11' ";
+		    }
+		    $conn->query($sql);
+
 		}
 		else
 		{
 			echo "nhi hua";
 		}
+    }
+    if(isset($_REQUEST['save-btn']))
+    {
+    	echo "hiiii";
+    	if($_FILES["fileToUpload"]["name"] != "")
+    	{
+    		echo "hello";
+    		$target_fil = "upload/".basename($_FILES["fileToUpload"]["name"]);
+    		echo $target_fil;
+    		echo ' <script type="text/javascript"> changepic(); </script> ';
+    	}
     }
 
    // echo "Connected Successfully";
@@ -115,8 +143,8 @@
 		<div class="inside-box">
 			<p style="padding-left: 23%; font-size: 23px; padding-top: 2%;">Add Profile Photo</p>
 			<br><br>
-			<div class="mericlass">
-				<img src="user-otp.png" class="rounded-circle">
+			<div class="mericlass" >
+				<img src="user-otp.png" id="change-photo" class="rounded-circle">
 			</div>
 			<p style="text-align: center; font-size: 25px;"><?php echo $_SESSION['username']; ?></p>
 			<br>
@@ -124,16 +152,24 @@
 			<div class="form-group">
 				<form method="POST" action="uploadpic.php" enctype="multipart/form-data">	&nbsp;
 				    <input type="file" name="fileToUpload" id="fileToUpload" >
-				    <button type="submit" name="submit-btnn" class="btn btn-primary">Save photo..</button>
+				    <button type="submit" name="save-btn" class="btn btn-primary">Save photo..</button>
 			    	<button type="submit" name="submit-btnn" class="btn btn-primary">Submit</button>
 				</form>
 		  	</div>
 
-		  	<br><br><br>
+		  	<br><br>
 		  	<p style="color: grey; margin-left: 25%; margin-bottom: 0;">Wanna Sign-in <a href="index.php" style="text-decoration: none;">Home Page</a></p>
 		  	<p style="color: grey; margin-left: 30%">&copy;Proness2017-2018</p>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+		function changepic(){
+			var addr = "<?php echo $target_fil; ?>";
+
+			document.getElementById('change-photo').src = "upload/Profile pic.jpg";
+		}		
+	</script>
 
 </body>
 </html>
