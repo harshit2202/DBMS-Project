@@ -20,7 +20,6 @@
 		$user = $_POST['Username'];
 		$pass = $_POST['Password'];
 		$type = $_POST['cars'];
-		$_SESSION['username'] = $user;
 		if($type=="cop")
 		{
 			$sql = "SELECT * FROM coptable WHERE username='$user' AND password='$pass' ";
