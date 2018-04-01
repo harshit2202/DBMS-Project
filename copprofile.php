@@ -14,8 +14,8 @@
 		die("connection error".$conn->connect_error);
 	}
 
-	$sql = "SELECT * FROM usertable WHERE username= '$user' ";
-
+	$sql = "SELECT * FROM coptable WHERE username= '$user' ";
+	
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
 	$conn->close();
@@ -25,7 +25,7 @@
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css" href="userprofile.css">
+	<link rel="stylesheet" type="text/css" href="copprofile.css">
 	<title><?php echo $_SESSION['username']; ?> - Profile</title>
 
 </head>
@@ -48,6 +48,11 @@
 			</div>
 			
 			<div class="information">
+
+				<p style="margin-bottom: 0;">COP Registration number : </p>
+				<p style="font-size: 25px;"><b><?php echo $row["copID"]; ?></b></p>
+
+				<br>
 
 				<p style="margin-bottom: 0;">Name : </p>
 				<p style="font-size: 25px;"><b><?php echo $row["name"]; ?></b></p>
