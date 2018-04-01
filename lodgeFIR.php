@@ -46,7 +46,7 @@
 <body>
 	<div class="global">
 		<div class = "top">
-			<h1 class="display-4" style="float: left;">Online FIR Portal</h1>
+			<h1 class="display-4" style="float: left; font-weight: lighter;font-size: 50px">Online FIR Portal</h1>
 			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="" ><img src="logout.png"> Logout</a></p>
 		</div>
 
@@ -98,7 +98,7 @@
 				<br><br>
 				<div class="custom-control custom-checkbox" >
 					<input type="checkbox" class="custom-control-input" id="customCheck1" required value="accepted">
-					<label class="custom-control-label" for="customCheck1" style="padding-top: 0px; color: #aa0002" >I Accept that all the Information provided in this FIR is true to best of my knowledge.</label>
+					<label class="custom-control-label" for="customCheck1" style="padding-top: 0px; color: #aa0002" >I Accept that all the Information provided in this FIR is true to the best of my knowledge.</label>
 				</div>
 				<button action = "submit" >Submit FIR</button>
 				<br><br><br>
