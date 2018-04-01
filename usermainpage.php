@@ -34,7 +34,7 @@
 			</div>
 			</a>	
 
-			<a href="NULL" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/firprogress.php" class = "anchor" >
 			<div class = "clickable">
 				FIR History
 			</div>
