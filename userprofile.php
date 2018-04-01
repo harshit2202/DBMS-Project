@@ -45,9 +45,9 @@
 
 		<div class="heading">
 			<span class="mainheading">Online FIR Portal</span>
-			<p style="float: left;margin-top: 1.5%; margin-left: 5%; font-size: 20px;"><a style="text-decoration: none;" href="http://localhost/TestFolder/usermainpage.php"><img style="margin-bottom: 8%;" src="home.png"> Home</a></p>
+			<p style="float: left;margin-top: 1.5%; margin-left: 5%; font-size: 20px;"><a style="text-decoration: none;" href="http://localhost/DBMS-Project/usermainpage.php"><img style="margin-bottom: 8%;" src="home.png"> Home</a></p>
 			<p style="float: left ; margin-left: 38%; margin-top: 1.8%;"; > <img style="margin-bottom: 1%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp;
-			 <a style="text-decoration: none;" href="http://localhost/TestFolder/index.php"><img src="logout.png"> Logout</a></p>
+			 <a style="text-decoration: none;" href="http://localhost/DBMS-Project/index.php"><img src="logout.png"> Logout</a></p>
 		</div>
 
 		<div class="details-section">

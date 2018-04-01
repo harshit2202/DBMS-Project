@@ -12,23 +12,23 @@
 		
 		<div class="heading">
 			<span class="mainheading">Online FIR Portal</span>
-			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href=""><img src="logout.png"> Logout</a></p>
+			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 1%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href=""><img src="logout.png"> Logout</a></p>
 		</div>
 
 		<div class ="leftt">
-			<a href="NULL" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/usermainpage.php" class = "anchor" >
 			<div class = "clickable">
 				Home
 			</div>
 			</a>
 
-			<a href="http://localhost/TestFolder/userprofile.php" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/userprofile.php" class = "anchor" >
 			<div class = "clickable">
 				Profile
 			</div>
 			</a>
 
-			<a href="" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/lodgeFIR.php" class = "anchor" >
 			<div class = "clickable">
 				New FIR
 			</div>
