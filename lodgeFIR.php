@@ -25,6 +25,8 @@
 
 		$sql = "INSERT INTO firtable(username,date,place_crime,descp_crime,descp_suspect,time,see_suspect,know_suspect,victim) VALUES ('$var1','$var2','$var3','$var4','$var5','$var6','$var7','$var8','$var9')";
  	
+		$result = $conn->query($sql);
+
 		$sql2 = "SELECT firno from firtable where username='$var1' ";
 
 		$result2 = $conn->query($sql2);
@@ -88,7 +90,7 @@
 	<div class="global">
 		<div class = "top">
 			<h1 class="display-4" style="float: left; font-weight: lighter;font-size: 50px">Online FIR Portal</h1>
-			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="" ><img src="logout.png"> Logout</a></p>
+			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="http://localhost/DBMS-Project/logout.php" ><img src="logout.png"> Logout</a></p>
 		</div>
 
 		<div class ="leftt">
