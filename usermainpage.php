@@ -12,7 +12,7 @@
 		
 		<div class="heading">
 			<span class="mainheading">Online FIR Portal</span>
-			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 1%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="http://localhost/DBMS-Project/logout.php"><img src="logout.png"> Logout</a></p>
+			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 1%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a style="text-decoration: none;" href="http://localhost/DBMS-Project/logout.php"><img src="logout.png"> Logout</a></p>
 		</div>
 
 		<div class ="leftt">
@@ -133,6 +133,7 @@
 
 
 		<div class="right-panel">
+			<marquee direction="left" style="background-color: #171A21; color: white;">Hiiii I am marquee text..</marquee>
 			<div class="right-panel-text">
 				<p>Upcoming Events in your locality</p>
 					<li>Awareness Campaign 2018-19..</li>
