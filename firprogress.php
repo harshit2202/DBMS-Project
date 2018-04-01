@@ -1,5 +1,20 @@
+<?php session_start(); ?>
 <?php 
 	$GLOBALS['seensuspect'] = "Yes";
+
+	$servername="localhost";
+	$username="root";
+	$password="";
+	$dbname="DBMSProject";
+
+	$conn = new mysqli($servername,$username,$password,$dbname);
+
+	if($conn->connect_error){
+		die("connection error".$conn->connect_error);
+	}
+
+	
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,24 +33,34 @@
 	<div class = "global">
 		<div class = "top">
 			<h1 class="display-4" style="float: left; font-weight: lighter;font-size: 50px">Online FIR Portal</h1>
-			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"> username<!-- <?php echo $_SESSION['username'] ; ?> --> &nbsp; &nbsp; &nbsp; <a href="" ><img src="logout.png"> Logout</a></p>
+			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"><?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="" ><img src="logout.png"> Logout</a></p>
 		</div>
 		<div class ="leftt">
-			<a href="NULL" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/usermainpage.php" class = "anchor" >
 				<div class = "clickable">
-					TEST
+					Home
+				</div>
+			</a>
+			<a href="http://localhost/DBMS-Project/userprofile.php" class = "anchor" >
+				<div class = "clickable">
+					Profile
+				</div>
+			</a>
+			<a href="http://localhost/DBMS-Project/lodgeFIR.php" class = "anchor" >
+				<div class = "clickable">
+					New FIR
 				</div>
 			</a>
 			<a href="NULL" class = "anchor" >
 				<div class = "clickable">
-					FIR
+					Nearest Police Station
 				</div>
 			</a>
 			<a href="NULL" class = "anchor" >
 				<div class = "clickable">
-					HELP
+					Contact Us
 				</div>
-			</a>	
+			</a>
 		</div>
 		<div class = "main-panel">
 			<form>

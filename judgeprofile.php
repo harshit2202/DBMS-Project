@@ -14,7 +14,7 @@
 		die("connection error".$conn->connect_error);
 	}
 
-	$sql = "SELECT * FROM usertable WHERE username= '$user' ";
+	$sql = "SELECT * FROM judgetable WHERE username= '$user' ";
 
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
@@ -25,7 +25,7 @@
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css" href="userprofile.css">
+	<link rel="stylesheet" type="text/css" href="judgeprofile.css">
 	<title><?php echo $_SESSION['username']; ?> - Profile</title>
 
 </head>
@@ -42,12 +42,17 @@
 
 		<div class="details-section">
 			<div class="image-initials">
-				<img src="<?php echo $row["photoaddress"]; ?>" style="border-width: 2px;">
+				<img src=" <?php echo $row["photoaddress"]; ?> " style="border-width: 2px;">
 				<h2 style="text-align: center;"><?php echo $_SESSION['username']; ?></h2>
 				<p style="text-align: center;"><?php echo $row["name"]; ?></p>
 			</div>
 			
 			<div class="information">
+
+				<p style="margin-bottom: 0;">JUDGE - ID Registration number : </p>
+				<p style="font-size: 25px;"><b><?php echo $row["judgeID"]; ?></b></p>
+
+				<br>
 
 				<p style="margin-bottom: 0;">Name : </p>
 				<p style="font-size: 25px;"><b><?php echo $row["name"]; ?></b></p>

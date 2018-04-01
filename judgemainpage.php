@@ -4,7 +4,7 @@
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css" href="usermainpage.css">
+	<link rel="stylesheet" type="text/css" href="judgemainpage.css">
 	<title>DashBoard</title>
 </head>
 <body>
@@ -12,7 +12,7 @@
 		
 		<div class="heading">
 			<span class="mainheading">Online FIR Portal</span>
-			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 1%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a style="text-decoration: none;" href="http://localhost/DBMS-Project/logout.php"><img src="logout.png"> Logout</a></p>
+			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 1%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="http://localhost/DBMS-Project/logout.php"><img src="logout.png"> Logout</a></p>
 		</div>
 
 		<div class ="leftt">
@@ -22,7 +22,7 @@
 			</div>
 			</a>
 
-			<a href="http://localhost/DBMS-Project/userprofile.php" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/judgeprofile.php" class = "anchor" >
 			<div class = "clickable">
 				Profile
 			</div>
@@ -30,25 +30,18 @@
 
 			<a href="http://localhost/DBMS-Project/lodgeFIR.php" class = "anchor" >
 			<div class = "clickable">
-				New FIR
-			</div>
-			</a>	
-
-			<a href="http://localhost/DBMS-Project/firprogress.php" class = "anchor" >
-			<div class = "clickable">
-				FIR History
+				Check Pending Cases
 			</div>
 			</a>	
 
 			<a href="NULL" class = "anchor" >
 			<div class = "clickable">
-				Nearest Police Station
+				Assign Date/ Update Cases
 			</div>
-			</a>	
-
+			</a>
 			<a href="NULL" class = "anchor" >
 			<div class = "clickable">
-				Contact Us
+				Contact Log
 			</div>
 			</a>			
 		</div>
@@ -133,7 +126,6 @@
 
 
 		<div class="right-panel">
-			<marquee direction="left" style="background-color: #171A21; color: white;">Hiiii I am marquee text..</marquee>
 			<div class="right-panel-text">
 				<p>Upcoming Events in your locality</p>
 					<li>Awareness Campaign 2018-19..</li>
