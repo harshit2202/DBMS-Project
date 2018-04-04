@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php 
-	$GLOBALS['seensuspect'] = "Yes";
-
+	// $GLOBALS['seensuspect'] = "Yes";
+	$firno = $_GET['id'];
 	$servername="localhost";
 	$username="root";
 	$password="";
@@ -13,7 +13,24 @@
 		die("connection error".$conn->connect_error);
 	}
 
-	
+	$sql = "SELECT see_suspect FROM firtable WHERE firno = '$firno'";
+
+	$result = $conn->query($sql);
+
+	$row = $result->fetch_assoc();
+
+	if($row=='yes')
+	{
+		$GLOBALS['seensuspect'] = "Yes";
+	}
+	else
+	{
+		$GLOBALS['seensuspect'] = "No";
+	}
+	$sql = "SELECT * FROM firtable WHERE firno = '$firno'";
+	$result = $conn->query($sql);
+
+	$row = mysqli_fetch_row($result);
 
 ?>
 <!DOCTYPE html>
@@ -65,24 +82,24 @@
 		<div class = "main-panel">
 			<form>
 				<label for = "firno">FIR Number </label>
-				<input type="Number" name="firno" disabled>
-				<label for = "firno">Name </label>
-				<input type="text" name="firno" disabled>
+				<input type="Number" name="firno" value="<?php echo $row[1]; ?>" disabled>
+				<label for = "firno">Name(Victim) </label>
+				<input type="text" name="firno" value="<?php echo $row[9]; ?>" disabled>
 				<label for = "firno">Date </label>
-				<input type="date" name="firno" disabled>
+				<input type="date" name="firno" value="<?php echo $row[2]; ?>" disabled>
 				<label for = "place">Place of crime</label>
-				<input type="text" name="place" disabled>
+				<input type="text" name="place" value="<?php echo $row[3]; ?>" disabled>
 				<label for = "time">Time </label>
-				<input type="time" name="firno" disabled >
+				<input type="time" name="firno" value="<?php echo $row[6]; ?>" disabled >
 				<label for = "description">Description of crime</label>
-				<textarea disabled></textarea>
+				<textarea disabled><?php echo $row[4]; ?></textarea>
 				<label for = "seensuspect">Was suspect seen?</label>
 				<input id = "seensuspect" type="text" name="seensuspect" disabled value=<?php echo $GLOBALS['seensuspect'] ?>>
 				<div id = "optional"  style="display: none;">
 					<label for = "describesuspect">Description of suspect</label>
-					<textarea name="describesuspect" disabled></textarea>
+					<textarea name="describesuspect" disabled><?php echo $row[5]; ?></textarea>
 					<label for = "knowsuspect">Do you know suspect?</label>
-					<input type="text" name="knowsuspect" disabled>
+					<input type="text" name="knowsuspect" value="<?php echo $row[8]; ?>" disabled>
 				</div><br>
 				<br>
 			</form>
