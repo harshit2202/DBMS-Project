@@ -42,7 +42,7 @@
 
 		<div class="details-section">
 			<div class="image-initials">
-				<img src=" <?php echo $row["photoaddress"]; ?> " style="border-width: 2px;">
+				<img src="<?php if($row["photoaddress"]!=""){echo $row["photoaddress"];} else{echo "user-big.png";}  ?>" style="border-width: 2px;">
 				<h2 style="text-align: center;"><?php echo $_SESSION['username']; ?></h2>
 				<p style="text-align: center;"><?php echo $row["name"]; ?></p>
 			</div>
