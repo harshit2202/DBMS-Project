@@ -41,7 +41,7 @@
 		{
 			$sql = "SELECT * FROM usertable WHERE username='$user' AND password='$pass' ";
 			$result = $conn->query($sql);
-			if($result->num_rows == 1)
+			if($result->num_rows == 1) // Have  to do exception Handling here when the password and username dont Match.
 			{
 				$_SESSION['username'] = $user;
 				$_SESSION['type'] = "citizen";
