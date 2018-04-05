@@ -3,7 +3,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="showcopfir.css">
+	<link rel="stylesheet" type="text/css" href="updatefircop.css">
 	<title>FIR Progress</title>
 	<script type="text/javascript">
 		function toggle() {
@@ -29,9 +29,9 @@
 					Profile
 				</div>
 			</a>
-			<a href="http://localhost/DBMS-Project/updatefircop.php" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/showcopfir.php" class = "anchor" >
 				<div class = "clickable">
-					Update FIR
+					Check FIR Records
 				</div>
 			</a>
 			<a href="NULL" class = "anchor" >
@@ -46,7 +46,7 @@
 			</a>
 		</div>
 		<div class = "main-panel">
-			<p style="text-align: center;">Click on FIR no. to show its detail.</p>
+			<p style="text-align: center;">Click on FIR no. to Update it.</p>
 			<?php
 				
 
@@ -83,7 +83,7 @@
 						$firno = $row[0];
 						echo "<tr>";
 						echo "<td>$indexno</td>";
-						echo "<td> <a href='http://localhost/DBMS-Project/firprogresscop.php?id=$firno'> $row[0]</a></td>";
+						echo "<td> <a href='http://localhost/DBMS-Project/firprogresscop.php?id=$firno'> $row[0]</a></td>"; /// change it
 						echo "<td>$row[1]</td>";
 						echo "<td>$row[2]</td>";
 						echo "</tr>";
