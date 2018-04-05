@@ -83,7 +83,7 @@
 						$firno = $row[0];
 						echo "<tr>";
 						echo "<td>$indexno</td>";
-						echo "<td> <a href='http://localhost/DBMS-Project/firprogresscop.php?id=$firno'> $row[0]</a></td>"; /// change it
+						echo "<td> <a href='http://localhost/DBMS-Project/copchangestatus.php?id=$firno'> $row[0]</a></td>"; /// change it
 						echo "<td>$row[1]</td>";
 						echo "<td>$row[2]</td>";
 						echo "</tr>";

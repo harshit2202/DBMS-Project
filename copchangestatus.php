@@ -32,12 +32,31 @@
 
 	$row = mysqli_fetch_row($result);
 
+	if(isset($_REQUEST['submit-btn']))
+	{
+		$user = $_SESSION['username'];
+
+		$sql = "SELECT copID FROM coptable WHERE username = '$user'";
+
+		$result = $conn->query($sql);
+		$res = mysqli_fetch_row($result);
+
+		$date_time = $_POST['newdate']." ".$_POST['newtime'].":00";
+		$status = $_POST['newstatus'];
+		$sql = " INSERT INTO copupdate(copID,firno,datetime,statement) VALUES ($res[0],$firno,'$date_time','$status') ";
+
+
+		$result = $conn->query($sql);
+
+		echo "successfully added";
+	}
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="firprogresscop.css">
+	<link rel="stylesheet" type="text/css" href="copchangestatus.css">
 	<title>FIR Progress</title>
 	<script type="text/javascript">
 		function toggle() {
@@ -63,9 +82,9 @@
 					Profile
 				</div>
 			</a>
-			<a href="http://localhost/DBMS-Project/updatefircop.php" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/showcopfir.php" class = "anchor" >
 				<div class = "clickable">
-					Update FIR
+					Check FIR Records
 				</div>
 			</a>
 			<a href="NULL" class = "anchor" >
@@ -80,7 +99,7 @@
 			</a>
 		</div>
 		<div class = "main-panel">
-			<form>
+			<form method="post">
 				<label for = "firno">FIR Number </label>
 				<input type="Number" name="firno" value="<?php echo $row[1]; ?>" disabled>
 				<label for = "firno">Name(Victim) </label>
@@ -102,7 +121,15 @@
 					<input type="text" name="knowsuspect" value="<?php echo $row[8]; ?>" disabled>
 				</div><br>
 				<br>
+				<label for = "description">What is new status of FIR ??</label>
+				<textarea name = "newstatus" required></textarea>
+				<label for = "firno">Date of new status </label>
+				<input type="date" name="newdate" required>
+				<label for = "time">Time of new status </label>
+				<input type="time" name="newtime" required >
+				<input type="submit" name="submit-btn" class="btn-primary">
 			</form>
+			<br><br>
 			<script type="text/javascript">
 				toggle();
 			</script>
