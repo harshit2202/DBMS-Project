@@ -104,7 +104,7 @@
 					Profile
 				</div>
 			</a>
-			<a href="http://localhost/DBMS-Project/firprogress.php" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/showuserfir.php" class = "anchor" >
 				<div class = "clickable">
 					FIR History
 				</div>
