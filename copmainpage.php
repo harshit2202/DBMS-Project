@@ -16,7 +16,7 @@
 		</div>
 
 		<div class ="leftt">
-			<a href="http://localhost/DBMS-Project/usermainpage.php" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/copmainpage.php" class = "anchor" >
 			<div class = "clickable">
 				Home
 			</div>
@@ -28,7 +28,7 @@
 			</div>
 			</a>
 
-			<a href="http://localhost/DBMS-Project/lodgeFIR.php" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/showcopfir.php" class = "anchor" >
 			<div class = "clickable">
 				Check FIR Records
 			</div>
