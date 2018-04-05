@@ -18,16 +18,20 @@
     	$upload=1;
 
     	$target_dir = "upload/";
-    	$target_file = $target_dir.basename($_FILES["fileToUpload"]["name"]);
-    	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-    	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) 
+    	$filename = $_FILES["fileToUpload"]["name"];
+    	$file_basename = substr($filename, 0, strripos($filename, '.')); // get file extention
+		$file_ext = substr($filename, strripos($filename, '.')); // get file name
+
+    	if($file_ext != ".jpg" && $file_ext != ".png" && $file_ext != ".jpeg" && $file_ext != ".gif" ) 
     	{
-   			 echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+   			echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
 			$upload =0;
 		}
 
-		if (file_exists($target_file)) 
+		$newfilename = md5($file_basename) . $file_ext;
+
+		if(file_exists("upload/".$newfilename)) 
 		{
 		    echo "Sorry, file already exists.";
 		    $upload = 0;
@@ -40,9 +44,9 @@
 		}
 
 
-		if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file))
+		if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], ("upload/".$newfilename) ))
 		{
-			$addr = $target_file;
+			$addr = "upload/".$newfilename;
 		    $var10 = $_SESSION['type'];
 		    $var11 = $_SESSION['username'];
 		    if($var10 == "cop")
@@ -61,6 +65,7 @@
 		    {
 		    	$conn->query($sql);
 		    }
+		    echo "ho gya";
 		}
 		else
 		{
