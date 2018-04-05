@@ -103,6 +103,87 @@
 				</div><br>
 				<br>
 			</form>
+			<label for = "place">Previous COP status</label>
+			<table class="table table-striped" style="width: 655px;">
+				<thead>
+					<tr>
+						<th scope="col">Cop ID</th>
+						<th scope="col">Date & Time</th>
+						<th scope="col">Status Uploaded</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+
+
+					$sql = "SELECT * from copupdate WHERE firno = $firno";
+					$ress = $conn->query($sql);
+					$flag=0;
+					while($roww = mysqli_fetch_row($ress))
+					{
+						$flag++;
+						echo '<tr>';
+						echo '<td>'.$roww[0].'</td>';
+						echo '<td>'.$roww[2].'</td>';
+						echo '<td>'.$roww[3].'</td>';
+						echo '</tr>';
+					}
+					if($flag==0)
+					{
+						echo '<tr>';
+						echo '<td>-</td>';
+						echo '<td>-</td>';
+						echo '<td>-</td>';
+						echo '</tr>';
+					}
+
+					?>
+					
+				</tbody>
+			</table>
+
+
+			<label for = "place">Previous Judge status</label>
+			<table class="table table-striped" style="width: 655px;">
+				<thead>
+					<tr>
+						<th scope="col">Judge ID</th>
+						<th scope="col">Date & Time</th>
+						<th scope="col">Status Uploaded</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+
+
+					$sql = "SELECT * from judgeupdate WHERE firno = $firno";
+					$ress = $conn->query($sql);
+					$flag2=0;
+					while($roww = mysqli_fetch_row($ress))
+					{
+						$flag2++;
+						echo '<tr>';
+						echo '<td>'.$roww[0].'</td>';
+						echo '<td>'.$roww[2].'</td>';
+						echo '<td>'.$roww[3].'</td>';
+						echo '</tr>';
+					}
+					if($flag2==0)
+					{
+						echo '<tr>';
+						echo '<td>-</td>';
+						echo '<td>-</td>';
+						echo '<td>-</td>';
+						echo '</tr>';
+					}
+
+
+					?>
+					
+				</tbody>
+			</table>
+
+			<br><br>
 			<script type="text/javascript">
 				toggle();
 			</script>

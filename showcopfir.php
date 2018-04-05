@@ -64,7 +64,7 @@
 
 					$user = $_SESSION['username'];
 
-					$sql = " SELECT firno,date,time from firtable WHERE username = '$user' ";
+					$sql = " SELECT firno,date,time from firtable ";
 
 					$result = $conn->query($sql);
 					echo "<table class='table'>";

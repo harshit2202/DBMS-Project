@@ -48,9 +48,7 @@
 		<div class = "main-panel">
 			<p style="text-align: center;">Click on FIR no. to Update it.</p>
 			<?php
-				
-
-
+			
 					$servername="localhost";
 					$username="root";
 					$password="";
@@ -64,7 +62,7 @@
 
 					$user = $_SESSION['username'];
 
-					$sql = " SELECT firno,date,time from firtable WHERE username = '$user' ";
+					$sql = " SELECT firno,date,time from firtable ";
 
 					$result = $conn->query($sql);
 					echo "<table class='table'>";

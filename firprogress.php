@@ -50,7 +50,7 @@
 	<div class = "global">
 		<div class = "top">
 			<h1 class="display-4" style="float: left; font-weight: lighter;font-size: 50px">Online FIR Portal</h1>
-			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"><?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="" ><img src="logout.png"> Logout</a></p>
+			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"><?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="http://localhost/DBMS-Project/logout.php" ><img src="logout.png"> Logout</a></p>
 		</div>
 		<div class ="leftt">
 			<a href="http://localhost/DBMS-Project/usermainpage.php" class = "anchor" >
@@ -103,6 +103,86 @@
 				</div><br>
 				<br>
 			</form>
+			<label for = "place">Previous COP status</label>
+			<table class="table table-striped" style="width: 655px;">
+				<thead>
+					<tr>
+						<th scope="col">Cop ID</th>
+						<th scope="col">Date & Time</th>
+						<th scope="col">Status Uploaded</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+
+
+					$sql = "SELECT * from copupdate WHERE firno = $firno";
+					$ress = $conn->query($sql);
+					$flag=0;
+					while($roww = mysqli_fetch_row($ress))
+					{
+						$flag++;
+						echo '<tr>';
+						echo '<td>'.$roww[0].'</td>';
+						echo '<td>'.$roww[2].'</td>';
+						echo '<td>'.$roww[3].'</td>';
+						echo '</tr>';
+					}
+					if($flag==0)
+					{
+						echo '<tr>';
+						echo '<td>-</td>';
+						echo '<td>-</td>';
+						echo '<td>-</td>';
+						echo '</tr>';
+					}
+
+					?>
+					
+				</tbody>
+			</table>
+
+
+			<label for = "place">Previous Judge status</label>
+			<table class="table table-striped" style="width: 655px;">
+				<thead>
+					<tr>
+						<th scope="col">Judge ID</th>
+						<th scope="col">Date & Time</th>
+						<th scope="col">Status Uploaded</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+
+
+					$sql = "SELECT * from judgeupdate WHERE firno = $firno";
+					$ress = $conn->query($sql);
+					$flag2=0;
+					while($roww = mysqli_fetch_row($ress))
+					{
+						$flag2++;
+						echo '<tr>';
+						echo '<td>'.$roww[0].'</td>';
+						echo '<td>'.$roww[2].'</td>';
+						echo '<td>'.$roww[3].'</td>';
+						echo '</tr>';
+					}
+					if($flag2==0)
+					{
+						echo '<tr>';
+						echo '<td>-</td>';
+						echo '<td>-</td>';
+						echo '<td>-</td>';
+						echo '</tr>';
+					}
+
+
+					?>
+					
+				</tbody>
+			</table>
+			<br><br>
 			<script type="text/javascript">
 				toggle();
 			</script>

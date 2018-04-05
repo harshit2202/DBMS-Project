@@ -99,6 +99,7 @@
 			</a>
 		</div>
 		<div class = "main-panel">
+			<p style="padding-left: 100px;"> Scroll down to enter new status..</p>
 			<form method="post">
 				<label for = "firno">FIR Number </label>
 				<input type="Number" name="firno" value="<?php echo $row[1]; ?>" disabled>
@@ -121,6 +122,85 @@
 					<input type="text" name="knowsuspect" value="<?php echo $row[8]; ?>" disabled>
 				</div><br>
 				<br>
+				<label for = "place">Previous COP status</label>
+				<table class="table table-striped" style="width: 655px;">
+					<thead>
+						<tr>
+							<th scope="col">Cop ID</th>
+							<th scope="col">Date & Time</th>
+							<th scope="col">Status Uploaded</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+
+
+						$sql = "SELECT * from copupdate WHERE firno = $firno";
+						$ress = $conn->query($sql);
+						$flag=0;
+						while($roww = mysqli_fetch_row($ress))
+						{
+							$flag++;
+							echo '<tr>';
+							echo '<td>'.$roww[0].'</td>';
+							echo '<td>'.$roww[2].'</td>';
+							echo '<td>'.$roww[3].'</td>';
+							echo '</tr>';
+						}
+						if($flag==0)
+						{
+							echo '<tr>';
+							echo '<td>-</td>';
+							echo '<td>-</td>';
+							echo '<td>-</td>';
+							echo '</tr>';
+						}
+
+						?>
+						
+					</tbody>
+				</table>
+
+
+				<label for = "place">Previous Judge status</label>
+				<table class="table table-striped" style="width: 655px;">
+					<thead>
+						<tr>
+							<th scope="col">Judge ID</th>
+							<th scope="col">Date & Time</th>
+							<th scope="col">Status Uploaded</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+
+
+						$sql = "SELECT * from judgeupdate WHERE firno = $firno";
+						$ress = $conn->query($sql);
+						$flag2=0;
+						while($roww = mysqli_fetch_row($ress))
+						{
+							$flag2++;
+							echo '<tr>';
+							echo '<td>'.$roww[0].'</td>';
+							echo '<td>'.$roww[2].'</td>';
+							echo '<td>'.$roww[3].'</td>';
+							echo '</tr>';
+						}
+						if($flag2==0)
+						{
+							echo '<tr>';
+							echo '<td>-</td>';
+							echo '<td>-</td>';
+							echo '<td>-</td>';
+							echo '</tr>';
+						}
+
+
+						?>
+						
+					</tbody>
+				</table>
 				<label for = "description">What is new status of FIR ??</label>
 				<textarea name = "newstatus" required></textarea>
 				<label for = "firno">Date of new status </label>
@@ -129,6 +209,9 @@
 				<input type="time" name="newtime" required >
 				<input type="submit" name="submit-btn" class="btn-primary">
 			</form>
+
+			
+
 			<br><br>
 			<script type="text/javascript">
 				toggle();
