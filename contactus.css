@@ -1,0 +1,120 @@
+.*{
+	margin: 0; 
+}
+html,body{
+	height: 100%;
+	width: 100%;
+}
+.main-page{
+	height: 100%;
+	width: 100%;
+}
+.heading{
+	height: 12%;
+	width: 100%;
+	background-color: #BABDBF;
+	border-bottom: solid #333;
+}
+.mainheading{
+	font-weight: lighter;
+	font-size: 250%;
+	margin-left: 10%;
+	padding-top: 0.5%;
+	float: left;
+	font-style: normal;
+}
+.leftt{
+	float: left;
+	height: 88%;
+	width: 20%;
+	background-color: #171A21;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+.news-panel{
+	
+	float: left;
+	width: 50%;
+	height: 88%;
+	background-color: #F0E1F6;
+	overflow: auto;
+}
+
+.clickable{
+	background-color:#171A21;
+	height: 3em;
+	text-align: center;
+	padding-top: 6%;
+	border-bottom: 1px solid grey;
+	-webkit-transition-duration: 0.6s;
+	transition-duration: 0.6s;
+	color: white;
+	
+	font-size: 20px;
+	font-weight: lighter;
+
+	 -webkit-transition: all 0.30s ease-in-out;
+	  -moz-transition: all 0.30s ease-in-out;
+	  -ms-transition: all 0.30s ease-in-out;
+	  -o-transition: all 0.30s ease-in-out;
+	  outline: none;
+	}
+
+.clickable:hover{
+	background-color: #17212E; 
+	text-decoration-color: blue;
+	letter-spacing: 0.5px;
+	
+	font-size:23px;
+	font-weight: lighter;
+	color: grey;
+	border-radius: 7px;
+	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
+
+
+.btn-primary{
+	font-size: 13px;
+}
+
+::-webkit-scrollbar{
+	width: 6px;
+}
+
+::-webkit-scrollbar-track{
+	background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb{
+	background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover{
+	background: #555; 
+}
+
+
+a.anchor:visited { color:#FFF; text-decoration:none; font-weight:normal; }
+a.anchor:hover {color:black; text-decoration:none; font-weight:normal;}
+a.anchor:link { color:orange; text-decoration:none; font-weight:normal; }
+a.anchor:active {color:red; text-decoration:none; font-weight:normal;}
+
+.con{
+	margin-left: 25%;
+	margin-top: 2%;
+	margin-right: 10%;
+	background-color: #DBDBDB;
+	overflow-y: : scroll;	
+	
+	border-style: solid;
+	border-width: 0px;
+	border-radius: 8px;
+		padding:5%;
+
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 18px;
+	font-weight: lighter;
+	
+}
