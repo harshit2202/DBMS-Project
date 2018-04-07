@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>News</title>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="wantedpage.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+      var pyrmont;
+
+// if (navigator.geolocation){ //check geolocation available
+//     //try to get user current location using getCurrentPosition() method
+//     navigator.geolocation.getCurrentPosition(function(position){
+//             console.log("Found your location \nLat : "+position.coords.latitude+" \nLang :"+ position.coords.longitude);
+//             pyrmont = {
+//               lat: position.coords.latitude,
+//               lng: position.coords.longitude
+//             };
+
+//         });
+// }else{
+//     console.log("Browser doesn't support geolocation!");
+// }
+
+
+
+
+	  var map;
+      var infowindow;
+
+
+
+      function initMap() {
+
+
+
+
+      	pyrmont = {lat: 25.426915299999997, lng: 81.77179070000001};
+
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: pyrmont,
+          zoom: 17
+        });
+
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: pyrmont,
+          radius: 5000,
+          type: ['police']
+        }, callback);
+      }
+
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
+
+    </script>
+
+
+</head>
+<body >
+	<div class="main-page" >
+		
+		<div class="heading">
+			<span class="mainheading">Online FIR Portal</span>
+			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; >  &nbsp; &nbsp; &nbsp; 
+		</div>
+
+		<div class ="leftt">
+			<a href="http://localhost/DBMS-Project/usermainpage.php" class = "anchor" >
+			<div class = "clickable">
+				Home
+			</div>
+			</a>
+
+			<a href="http://localhost/DBMS-Project/userprofile.php" class = "anchor" >
+			<div class = "clickable">
+				Profile
+			</div>
+			</a>
+
+			<a href="http://localhost/DBMS-Project/lodgeFIR.php" class = "anchor" >
+			<div class = "clickable">
+				New FIR
+			</div>
+			</a>	
+
+			<a href="http://localhost/DBMS-Project/showuserfir.php" class = "anchor" >
+			<div class = "clickable">
+				FIR History
+			</div>
+			</a>	
+
+			<a href="NULL" class = "anchor" >
+			<div class = "clickable">
+				Nearest Police Station
+			</div>
+			</a>	
+
+			<a href="NULL" class = "anchor" >
+			<div class = "clickable">
+				Contact Us
+			</div>
+			</a>			
+		</div>
+		
+		<div id="map" style="width:80%;height:88%;border-style: solid;border-width: 2px;"> 			 
+		</div>	
+		 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPBdB2ojgDnMFYzMx3uOqHZ1LO8kdiSdU&libraries=places&callback=initMap" async defer></script>
+		
+</body>
+</html>
+<!-- API  AIzaSyAPBdB2ojgDnMFYzMx3uOqHZ1LO8kdiSdU  -->
