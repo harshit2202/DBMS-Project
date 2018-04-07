@@ -130,6 +130,9 @@ html,body{
 	font-size: 13px;
 }
 
+.news img{
+	max-width: 500px;
+}
 ::-webkit-scrollbar{
 	width: 6px;
 }

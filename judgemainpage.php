@@ -20,7 +20,7 @@ if(!isset($_SESSION['username'])) {
 		</div>
 
 		<div class ="leftt">
-			<a href="http://localhost/DBMS-Project/usermainpage.php" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/judgemainpage.php" class = "anchor" >
 			<div class = "clickable">
 				Home
 			</div>
@@ -32,18 +32,18 @@ if(!isset($_SESSION['username'])) {
 			</div>
 			</a>
 
-			<a href="http://localhost/DBMS-Project/lodgeFIR.php" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/showjudgefir.php" class = "anchor" >
 			<div class = "clickable">
 				Check Pending Cases
 			</div>
 			</a>	
 
-			<a href="NULL" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/updatefirjudge.php" class = "anchor" >
 			<div class = "clickable">
-				Assign Date/ Update Cases
+				Standing/ Update Cases
 			</div>
 			</a>
-			<a href="NULL" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/judgecontactus.html" class = "anchor" >
 			<div class = "clickable">
 				Contact Log
 			</div>
