@@ -66,7 +66,7 @@
 				$_SESSION['phone-no']=$_POST['phone-no'];
 				$_SESSION['otp']=mt_rand(1000,9999);
 				$_SESSION['type']="user";
-				header('Location: http://localhost/TestFolder/OTP-Verification.php');
+				header('Location: http://localhost/DBMS-Project/OTP-Verification.php');
 				exit();
 
 			}	

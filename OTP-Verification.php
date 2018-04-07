@@ -112,6 +112,11 @@
 	            $conn->close();  
 	        }  
         }
+
+        session_destroy();
+        session_start();
+        $_SESSION['username'] = $var3;
+        $_SESSION['type'] = $type;
     }
 ?>
 <!DOCTYPE html>
@@ -133,7 +138,7 @@
 			<p style="text-align: center; font-size: 25px;"><?php echo "Username"; ?></p>
 			<br>
 			<div class="form-group">
-				<form method="POST" action="otp1.php">
+				<form method="POST" >
 				    <input type="password" class="form-control" id="exampleInputEmail1" name ="otpp" aria-describedby="emailHelp" placeholder="Enter OTP (One Time Password)">
 				    <button type="submit" name="submit-btnn" class="btn btn-primary">Submit</button>
 				</form>

@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<!-- ?php
+<?php
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
@@ -10,15 +10,30 @@
 	$conn = mysqli_connect($servername,$username,$password,$dbname);
 
 	$user = $_SESSION['username'];
-	$sql = "select email from usertable where username = '$user'";
+	$sql = "select firno,date,place_crime,descp_crime,time,victim from firtable where username = '$user'";
+    $sql2 = "select email from usertable where username = '$user'";
 
-	$result = $conn->query($sql);
+$result = $conn->query($sql);
+$result2 = $conn->query($sql2);
 
 	while($row = mysqli_fetch_row($result));
+{
+    $firno=$row[0];
+    $description = $row[3];
+    $nameofvictim ='';
+    $nameofvictim = $row[5];
+    $namereported = '';
+    $datecrime = $row[1];
+    $timecrime = $row[4];
+    $placecrime = $row[2];
+}
+while($row = mysqli_fetch_row($result2));
+{
+    $email = $row[0];
+}
 
-	$email = $row[0]; 
 
-?> -->
+?>
 
 
 
@@ -33,15 +48,7 @@
 
 <?php 
 require('C:\xampp\htdocs\fpdf181\fpdf.php');
-$firno='4566546465446546564';
-$docrime ='YESSS';
-$dosubmit = 'ASASAAS';
-$description = 'Setting Tough paper';
-$nameofvictim ='';
-$namereported = '';
-$datecrime = '30/03/2018';
-$timecrime = '6:30 PM';
-$placecrime = 'IIIT';
+
 
 
 
@@ -61,7 +68,7 @@ $pdf -> Cell(189,5,'Online FIR',0,1,'C');
 
 $pdf -> SetFont('Helvetica','i', 8);
 $pdf -> SetX(10);
-$pdf -> Cell(189,10,'This is a pdf from of the FIR you submitted',0,1,'C');
+$pdf -> Cell(189,10,'This is a pdf form of the FIR you submitted',0,1,'C');
 
 $pdf->Ln(); //New Line
            //FIR Number
@@ -71,13 +78,13 @@ $pdf -> SetTextColor(204,0,0);
 $pdf -> Cell(139,7,$firno,0,1,'L');
 $pdf -> SetTextColor(0,0,0);
 $pdf->Ln(); 
-
-$pdf -> Cell(60,7,'Date Submitted:',0,0,'L');
-$pdf -> Cell(139,7,$dosubmit,0,1,'L');
-$pdf->Ln();
-$pdf -> Cell(60,7,'Name Of Reported:',0,0,'L');
-$pdf -> Cell(139,7,$namereported,0,1,'L');
-$pdf->Ln();
+//
+//$pdf -> Cell(60,7,'Date Submitted:',0,0,'L');
+//$pdf -> Cell(139,7,$dosubmit,0,1,'L');
+//$pdf->Ln();
+//$pdf -> Cell(60,7,'Name Of Reported:',0,0,'L');
+//$pdf -> Cell(139,7,$namereported,0,1,'L');
+//$pdf->Ln();
 $pdf -> Cell(60,7,'Name Of Victim:',0,0,'L');
 $pdf -> Cell(139,7,$nameofvictim,0,1,'L');
 $pdf->Ln();
@@ -151,8 +158,8 @@ try
     $mail->SMTPSecure = 'tls';                            
     $mail->Port = 587;                                    
     $mail->setFrom('mridulgupta11944@gmail.com', 'Mridul');
-    $mail->addAddress('IIT2016028@iiita.ac.in', 'Prathmesh');    
-    $mail->addAddress('IIT2016055@iiita.ac.in', 'Harshit');
+    $mail->addAddress($email,$username);
+    //$mail->addAddress('IIT2016055@iiita.ac.in', 'Harshit');
     $mail->addAttachment('C:\xampp\htdocs\Project\DBMS-Project\test.pdf');         // Add attachments
     //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
     $mail->isHTML(true);                                  // Set email format to HTML

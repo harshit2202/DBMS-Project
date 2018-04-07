@@ -32,8 +32,8 @@ if(!isset($_SESSION['username'])) {
    			echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
 			$upload =0;
 		}
-
-		$newfilename = md5($file_basename) . $file_ext;
+        $finalname = $_SESSION['username'].$_SESSION['type'];
+		$newfilename = md5($finalname) . $file_ext;
 
 		if(file_exists("upload/".$newfilename)) 
 		{

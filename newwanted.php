@@ -34,7 +34,7 @@ if(!isset($_SESSION['username'])) {
 
         $newfilename = md5($file_basename) . $file_ext;
 
-        if(file_exists("upload/".$newfilename))
+        if(file_exists("wanted/".$newfilename))
         {
             echo "Sorry, file already exists.";
             $upload = 0;
@@ -129,7 +129,7 @@ if(!isset($_SESSION['username'])) {
             <label for = "lastseen">Last Seen ( Optional )</label>
             <input id = "datefield" type="date" max="2019-09-03" name = "lastseen"><br>
             <label for="image"  style="padding-top: 1%">Image</label>
-            <input type="file" required>
+            <input type="file" required name = "fileToUpload">
             <button type="submit" name="submit" > Submit Details</button>
             <br><br><br>
         </form>
