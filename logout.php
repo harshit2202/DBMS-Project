@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php session_start();
+if(!isset($_SESSION['username'])) {
+    header( 'Location: http://localhost/DBMS-Project/index.php');
+}
+?>
 <?php
 	session_destroy();
 	header('Location: http://localhost/DBMS-Project/index.php');

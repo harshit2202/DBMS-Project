@@ -1,5 +1,9 @@
-<?php session_start(); ?>
-<?php 
+<?php session_start();
+if(!isset($_SESSION['username'])) {
+    header( 'Location: http://localhost/DBMS-Project/index.php');
+}
+?>
+<?php
 	// $GLOBALS['seensuspect'] = "Yes";
 	$firno = $_GET['id'];
 	$servername="localhost";

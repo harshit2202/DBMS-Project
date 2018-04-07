@@ -1,7 +1,9 @@
 <?php session_start();
-	echo "<script>togglefunc();</script>";
+echo "<script>togglefunc();</script>";
+if(!isset($_SESSION['username'])) {
+    header( 'Location: http://localhost/DBMS-Project/index.php');
+}
 ?>
-
 <?php
 	if(isset($_REQUEST['submit']))
 	{

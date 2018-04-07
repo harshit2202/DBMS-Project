@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php session_start();
+    if(!isset($_SESSION['username'])) {
+        header( 'Location: http://localhost/DBMS-Project/index.php');
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
