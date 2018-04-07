@@ -54,7 +54,13 @@ if(!isset($_SESSION['username'])) {
 			<div class = "clickable">
 				Contact Log
 			</div>
-			</a>			
+			</a>
+
+            <a href="http://localhost/DBMS-Project/newwanted.php" class = "anchor" >
+                <div class = "clickable">
+                    Add Wanted Entry
+                </div>
+            </a>
 		</div>
 
 		<div class="news-panel">

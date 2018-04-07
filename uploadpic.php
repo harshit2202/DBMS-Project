@@ -69,7 +69,6 @@ if(!isset($_SESSION['username'])) {
 		    {
 		    	$conn->query($sql);
 		    }
-		    echo "ho gya";
 		}
 		else
 		{
