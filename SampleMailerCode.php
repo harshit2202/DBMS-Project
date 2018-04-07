@@ -19,7 +19,7 @@ try
     //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
     //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Chal Gaya ganduu';
+    $mail->Subject = 'FIR OTP';
     $mail->Body    = '<!DOCTYPE html>
 <html>
 <head>
