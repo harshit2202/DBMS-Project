@@ -1,5 +1,7 @@
 
-<?php session_start(); ?>
+<?php session_start();
+$_SESSION['loginTrial'] = "";
+?>
 <?php
 
 	$servername="localhost";
@@ -34,7 +36,7 @@
 			}
 			else
 			{
-				alert("Username or Password do not match");
+			    alert("Username or Password do not match");
 			}
 		}
 		elseif($type=="citizen")
@@ -50,10 +52,10 @@
 			}
 			else
 			{
-				alert("Username or Password do not match");
+                alert("Username or Password do not match");
 			}
 		}
-		elseif($type=="judge")
+		else
 		{
 			$sql = "SELECT * FROM judgetable WHERE username='$user' AND password='$pass' ";
 			$result = $conn->query($sql);
@@ -66,12 +68,8 @@
 			}
 			else
 			{
-				alert("Username or Password do not match");
+                alert("Username or Password do not match");
 			}
-		}
-		elseif($type=="none")
-		{
-			alert("Select any of the categories");
 		}
 		//header('Location: http://localhost/TestFolder/cop1.php');
 		//exit();
@@ -119,16 +117,16 @@
 		<form method="post">
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">Username</label>
-		    <input type="text" name="Username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
+		    <input name="Username" required <?php echo isset($_POST['Username'])?'value="'.htmlspecialchars($_POST['Username']).'"':''; ?> type="text"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
 		    <small id="emailHelp" class="form-text text-muted">We'll never share your details with anyone else.</small>
 		  </div>
 		  <div class="form-group">
 		    <label for="exampleInputPassword1">Password</label>
-		    <input type="password" name="Password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+		    <input required type="password" name="Password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 		    <small id="emailHelp" class="form-text text-muted">Never share your password with anyone.</small>
 		  </div>
 		  
-		  <div class="dropdown" style="float: left; margin-top: 10%;" id="dropp">
+		    <div class="dropdown" style="float: left; margin-top: 10%;" id="dropp">
 			  <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			    Select Any..
 			  </button> -->
@@ -138,14 +136,14 @@
 			    <button class="dropdown-item" type="button" id="bt3">Judge</button>
 			  </div> -->
 			  <div class="form-group" >
-				  <select class="form-control" id="sel1" name="cars">
-				  	<option value="none">Select any..</option>
-				    <option value="cop">Cop</option>
-				    <option value="citizen">Citizen</option>
-				    <option value="judge">Judge</option>
+				  <select class="form-control" id="sel1" name="cars" required>
+				  	<option value="">Select any..</option>
+				    <option value="cop" <?php if(isset($_POST['cars']) && $_POST['cars'] == "cop") echo "selected"?>>Cop</option>
+				    <option value="citizen" <?php if(isset($_POST['cars']) && $_POST['cars'] == "citizen") echo "selected"?>>Citizen</option>
+				    <option value="judge" <?php if(isset($_POST['cars']) && $_POST['cars'] == "judge") echo "selected"?> >Judge</option>
 				  </select>
 				</div>
-			</div>
+            </div>
 
 
 		  <button type="submit" class="btn btn-primary" name="submit-btnn" style="float: right; margin-top: 10%;">Submit</button>
@@ -161,22 +159,6 @@
 		<br><br><br><br><br><br>
 		<p style="padding-bottom: 0; margin-bottom: 0; text-align: right; color: #777F80; margin-right: 2%;">Select one of the above links to continue...</p>
 	</div>
-
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("#bt1").click(function(){
-				$("#dropdownMenu2").html("Cop");
-			});
-
-			$("#bt2").click(function(){
-				$("#dropdownMenu2").html("Citizen");
-			});
-
-			$("#bt3").click(function(){
-				$("#dropdownMenu2").html("Judge");
-			});
-		});
-	</script>
 </body>
 </html>
 
