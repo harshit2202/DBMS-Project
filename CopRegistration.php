@@ -36,7 +36,7 @@
 		if($result1->num_rows ==0 && $result2->num_rows==0)
 		{
 
-			$flag1 = $flag2 = $flag3 = 0;
+			$flag1 = $flag3 = 0;
 			$len = strlen($_POST["email"]);
 			$email =$_POST["email"];
 
@@ -46,17 +46,12 @@
 			if(filter_var($email,FILTER_VALIDATE_EMAIL))
 				$flag1=1;
 
-			
-			if($_POST["password"] == $_POST["repassword"])
-				$flag2 = 1;
-			else
-				alert("Passwords do not match...");
 
 			if(strlen($_POST['phone-no'])==10)
 				$flag3=1;
 
 			echo $flag1.$flag2.$flag3;
-			if($flag1==1 && $flag2==1  && $flag3==1)
+			if($flag1==1  && $flag3==1)
 			{
 				//INSERT INTO TABLE....
 				$_SESSION['police-id']=$_POST['police-id'];
@@ -68,7 +63,7 @@
 				$_SESSION['phone-no']=$_POST['phone-no'];
 				$_SESSION['otp']=mt_rand(1000,9999);
 				$_SESSION['type']="cop";
-				header('Location: http://localhost/TestFolder/OTP-Verification.php');
+				header('Location: http://localhost/DBMS-Project/OTP-Verification.php');
 				exit();
 
 			}	
@@ -120,45 +115,61 @@
 				<br><br>
 					<form method="post">
 						<div class="form-group">
-						    <label for="inputAddress2">COP Unique Registration Number</label>
-						    <input required type="text" name="police-id" class="form-control" id="inputAddress2" placeholder="Provided by Indian police authorization">
+						    <label for="police-id">COP Unique Registration Number</label>
+						    <input required type="text" name="police-id" class="form-control" id="police-id" placeholder="Provided by Indian police authorization"
+                                <?php echo isset($_POST['police-id'])?'value="'.htmlspecialchars($_POST['police-id']).'"':''; ?> >
 					  	</div>
 					  <div class="form-row">
 					    <div class="form-group col-md-6">
-					      <label for="inputEmail4">Name</label>
-					      <input required type="text" name="name" class="form-control" id="inputEmail4" placeholder="Full name">
+					      <label for="name">Name</label>
+					      <input required type="text" name="name" class="form-control" id="name" placeholder="Full name"
+                              <?php echo isset($_POST['name'])?'value="'.htmlspecialchars($_POST['name']).'"':''; ?> >
 					    </div>
 					    <div class="form-group col-md-6">
-					      <label for="inputPassword4">Email-ID</label>
-					      <input required type="email" name="email" class="form-control" id="inputPassword4" placeholder="Email">
+					      <label for="email">Email-ID</label>
+					      <input required type="email" name="email" class="form-control" id="email" placeholder="Email"
+                              <?php echo isset($_POST['email'])?'value="'.htmlspecialchars($_POST['email']).'"':''; ?> >
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <label for="inputAddress">Address</label>
-					    <input required type="text" name="address" class="form-control" id="inputAddress" placeholder="1234 Main Street">
+					    <input required type="text" name="address" class="form-control" id="address" placeholder="1234 Main Street"
+                            <?php echo isset($_POST['address'])?'value="'.htmlspecialchars($_POST['address']).'"':''; ?> >
 					  </div>
 					  <div class="form-row">
 					    <div class="form-group col-md-6">
-					      <label for="inputCity">Username</label>
-					      <input required type="text" name="username" class="form-control" id="inputCity" placeholder="proness123">
+					      <label for="username">Username</label>
+					      <input required type="text" name="username" class="form-control" id="username" placeholder="proness123"
+                              <?php echo isset($_POST['username'])?'value="'.htmlspecialchars($_POST['username']).'"':''; ?> >
 					    </div>
 					    <div class="form-group col-md-6">
-					      <label for="inputState">Contact Number(Phone no.)</label>
-					      <input required type="text" name="phone-no" class="form-control" id="inputCity" placeholder="9837012345">
+					      <label for="phone-no">Contact Number(Phone no.)</label>
+					      <input required type="text" name="phone-no" class="form-control" id="phone-no" placeholder="9837012345"
+                              <?php echo isset($_POST['phone-no'])?'value="'.htmlspecialchars($_POST['phone-no']).'"':''; ?> >
 					    </div>
 					  </div>
 					  <div class="form-row">
 					    <div class="form-group col-md-6">
 					      <label for="inputCity">Password</label>
-					      <input required type="password" name="password" class="form-control" id="inputCity" placeholder="Password">
+					      <input required type="password" name="password" class="form-control" id="password" placeholder="Password" onchange="validatePassword()">
 					    </div>
 					    <div class="form-group col-md-6">
 					      <label for="inputState">Confirm Password</label>
-					      <input required type="password" name="repassword" class="form-control" id="inputCity" placeholder="Confirm Password">
+					      <input required type="password" name="repassword" class="form-control" id="repassword" placeholder="Confirm Password" onchange="validatePassword()">
 					    </div>
 					  </div>
 					  <button type="submit" name="register" class="btn btn-primary">Sign Up</button>
 					</form>
+                <script>
+                    var password = document.getElementById('password');
+                    var repassword = document.getElementById('repassword');
+                    function validatePassword() {
+                        if(password.value != repassword.value)
+                            repassword.setCustomValidity("Passwords Don't Match");
+                        else
+                            repassword.setCustomValidity("");
+                    }
+                </script>
 
 			</div>
 
