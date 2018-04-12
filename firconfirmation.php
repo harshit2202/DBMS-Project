@@ -1,44 +1,8 @@
-<?php session_start(); ?>
-<?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "dbmsproject";
-
-	$firno = $_GET['id'];
-
-	$conn = mysqli_connect($servername,$username,$password,$dbname);
-
-	$user = $_SESSION['username'];
-	$sql = "select firno,date,place_crime,descp_crime,time,victim from firtable where username = '$user'";
-    $sql2 = "select email from usertable where username = '$user'";
-
-$result = $conn->query($sql);
-$result2 = $conn->query($sql2);
-
-	while($row = mysqli_fetch_row($result));
-{
-    $firno=$row[0];
-    $description = $row[3];
-    $nameofvictim ='';
-    $nameofvictim = $row[5];
-    $namereported = '';
-    $datecrime = $row[1];
-    $timecrime = $row[4];
-    $placecrime = $row[2];
+<?php session_start(); 
+if(!isset($_SESSION['username'])) {
+    header( 'Location: http://localhost/DBMS-Project/index.php');
 }
-while($row = mysqli_fetch_row($result2));
-{
-    $email = $row[0];
-}
-
-
 ?>
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +11,46 @@ while($row = mysqli_fetch_row($result2));
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <?php 
-require('C:\xampp\htdocs\fpdf181\fpdf.php');
+
+
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $dbname="DBMSProject";
+
+    $conn = new mysqli($servername,$username,$password,$dbname);
+
+    if($conn->connect_error){
+        die("connection error".$conn->connect_error);
+    }
+
+    $firno = $_SESSION['firno'];
+    $user = $_SESSION['username'];
+
+    $sql = "SELECT firno,date,place_crime,descp_crime,time,victim from firtable where username = '$user'";
+    $sql2 = "SELECT email from usertable where username = '$user'";
+
+    $result = $conn->query($sql);
+    $result2 = $conn->query($sql2);
+    $firno=NULL;
+    $description = NULL;
+    $nameofvictim =NULL;
+    $nameofvictim = NULL;
+    $namereported = NULL;
+    $datecrime = NULL;
+    $timecrime = NULL;
+    $placecrime = NULL;
+    $email = NULL;
+
+    $row = $result->fetch_assoc();
+    $row2 = $result2->fetch_assoc();
+    $email =  $row2["email"];
+
+
+/**************************/
+
+
+require('E:\xampp\htdocs\fpdf181\fpdf.php');
 
 
 
@@ -75,7 +78,7 @@ $pdf->Ln(); //New Line
 $pdf -> SetFont('Arial','', 15);
 $pdf -> Cell(60,7,'FIR Number: ',0,0,'L');
 $pdf -> SetTextColor(204,0,0);
-$pdf -> Cell(139,7,$firno,0,1,'L');
+$pdf -> Cell(139,7,$row["firno"],0,1,'L');
 $pdf -> SetTextColor(0,0,0);
 $pdf->Ln(); 
 //
@@ -86,20 +89,20 @@ $pdf->Ln();
 //$pdf -> Cell(139,7,$namereported,0,1,'L');
 //$pdf->Ln();
 $pdf -> Cell(60,7,'Name Of Victim:',0,0,'L');
-$pdf -> Cell(139,7,$nameofvictim,0,1,'L');
+$pdf -> Cell(139,7,$row["victim"],0,1,'L');
 $pdf->Ln();
 $pdf -> Cell(60,7,'Date Of Crime:',0,0,'L');
-$pdf -> Cell(139,7,$datecrime,0,1,'L');
+$pdf -> Cell(139,7,$row["date"],0,1,'L');
 $pdf->Ln();
 $pdf -> Cell(60,7,'Place Of Crime:',0,0,'L');
-$pdf -> Cell(139,7,$placecrime,0,1,'L');
+$pdf -> Cell(139,7,$row["place_crime"],0,1,'L');
 $pdf->Ln();
 $pdf -> Cell(60,7,'Time Of Crime:',0,0,'L');
-$pdf -> Cell(139,7,$timecrime,0,1,'L');
+$pdf -> Cell(139,7,$row["time"],0,1,'L');
 $pdf->Ln();
 $pdf -> Cell(60,7,'Description',0,1,'L');
 $pdf -> SetFont('Arial','', 11);
-$pdf ->MultiCell(0, 6, $description, 0,'');
+$pdf ->MultiCell(0, 6, $row["descp_crime"], 0,'');
 $pdf -> SetFont('Arial','', 15);
 
 
@@ -110,7 +113,7 @@ $pdf -> SetY(-20);
 $pdf -> Cell(60,7,'This PDF is automatically generated',0,0,'L');
 $pdf -> Cell(123,7,chr(169).' All Rights Reserved',0,0,'R');
 
-$dir="test.pdf";
+$dir="FIRpdf\\".$_SESSION['firno'].".pdf";
 
 $pdf->Output($dir,'F');
 
@@ -131,10 +134,11 @@ $pdf->Output($dir,'F');
 			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; >  &nbsp; &nbsp; &nbsp; 
 		</div>
 		<div class = "normaltext">
-			FIR Number:  <!-- PHP Variable  here --><br>
+			FIR Number: <?php echo $_SESSION['firno']; ?><br>
 			An E-Mail has been sent to your registered Email ID with the FIR PDF.<br>
-			Else Download Here: 
+            <a href="http://localhost/DBMS-Project/usermainpage.php"> Back to Home</a>
 		</div>
+
 
 </div>
 
@@ -158,9 +162,10 @@ try
     $mail->SMTPSecure = 'tls';                            
     $mail->Port = 587;                                    
     $mail->setFrom('mridulgupta11944@gmail.com', 'Mridul');
-    $mail->addAddress($email,$username);
+    $mail->addAddress($email,$user);
     //$mail->addAddress('IIT2016055@iiita.ac.in', 'Harshit');
-    $mail->addAttachment('C:\xampp\htdocs\Project\DBMS-Project\test.pdf');         // Add attachments
+    $path = "E:\\xampp\htdocs\DBMS-Project\FIRpdf\\" .$_SESSION['firno']. ".pdf";
+    $mail->addAttachment($path);         // Add attachments
     //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'FIR OTP';

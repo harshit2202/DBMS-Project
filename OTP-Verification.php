@@ -117,6 +117,8 @@
         session_start();
         $_SESSION['username'] = $var3;
         $_SESSION['type'] = $type;
+        header('Location:http://localhost/DBMS-Project/uploadpic.php');
+        exit();
     }
 ?>
 <!DOCTYPE html>

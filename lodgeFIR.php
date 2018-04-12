@@ -37,8 +37,12 @@ if(!isset($_SESSION['username'])) {
 
 		$firno = $row[0];
 
+		echo $firno;
+
  		alert("Fir Successfully Registered : Fir Number is ",$firno);
- 		header('Location:http://localhost/Project/DBMS-Project/firconfirmation.php?id=$firno')
+ 		$_SESSION['firno'] = $firno;
+ 		header('Location:http://localhost/DBMS-Project/firconfirmation.php');
+ 		//exit();
 	}
 
 	function alert($msg,$firno)

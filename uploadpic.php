@@ -27,12 +27,13 @@ if(!isset($_SESSION['username'])) {
     	$file_basename = substr($filename, 0, strripos($filename, '.')); // get file extention
 		$file_ext = substr($filename, strripos($filename, '.')); // get file name
 
+		echo $file_ext;
     	if($file_ext != ".jpg" && $file_ext != ".png" && $file_ext != ".jpeg" && $file_ext != ".gif" ) 
     	{
    			echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
 			$upload =0;
 		}
-        $finalname = $_SESSION['username'].$_SESSION['type'];
+        $finalname = $_SESSION['username'].$_SESSION['type'].$file_basename;
 		$newfilename = md5($finalname) . $file_ext;
 
 		if(file_exists("upload/".$newfilename)) 
@@ -46,7 +47,7 @@ if(!isset($_SESSION['username'])) {
 		    echo "Sorry, your file is too large.";
 		    $upload = 0;
 		}
-
+		echo $upload;
 
 		if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], ("upload/".$newfilename) ))
 		{
@@ -56,18 +57,32 @@ if(!isset($_SESSION['username'])) {
 		    if($var10 == "cop")
 		    {
 		    	$sql = "UPDATE coptable SET photoaddress='$addr' where username = '$var11' ";
+		    	if($upload ==1)
+			    {
+			    	$conn->query($sql);
+			    	header('Location:http://localhost/DBMS-Project/copmainpage.php');
+			    	exit();
+			    }
 		    }
 		    if($var10 == "citizen")
 		    {
 		    	$sql = "UPDATE usertable SET photoaddress='$addr' where username = '$var11' ";
+		    	if($upload ==1)
+			    {
+			    	$conn->query($sql);
+			    	header('Location:http://localhost/DBMS-Project/usermainpage.php');
+			    	exit();
+			    }
 		    }
 		    if($var10 == "judge")
 		    {
 		    	$sql = "UPDATE judgetable SET photoaddress='$addr' where username = '$var11' ";
-		    }
-		    if($upload ==1)
-		    {
-		    	$conn->query($sql);
+		    	if($upload ==1)
+			    {
+			    	$conn->query($sql);
+			    	header('Location:http://localhost/DBMS-Project/judgemainpage.php');
+			    	exit();
+			    }
 		    }
 		}
 		else

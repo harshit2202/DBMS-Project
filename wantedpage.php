@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,45 +14,7 @@
 			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; >  &nbsp; &nbsp; &nbsp; 
 		</div>
 
-		<div class ="leftt">
-			<a href="http://localhost/DBMS-Project/usermainpage.php" class = "anchor" >
-			<div class = "clickable">
-				Home
-			</div>
-			</a>
-
-			<a href="http://localhost/DBMS-Project/userprofile.php" class = "anchor" >
-			<div class = "clickable">
-				Profile
-			</div>
-			</a>
-
-			<a href="http://localhost/DBMS-Project/lodgeFIR.php" class = "anchor" >
-			<div class = "clickable">
-				New FIR
-			</div>
-			</a>	
-
-			<a href="http://localhost/DBMS-Project/showuserfir.php" class = "anchor" >
-			<div class = "clickable">
-				FIR History
-			</div>
-			</a>	
-
-			<a href="NULL" class = "anchor" >
-			<div class = "clickable">
-				Nearest Police Station
-			</div>
-			</a>	
-
-			<a href="NULL" class = "anchor" >
-			<div class = "clickable">
-				Contact Us
-			</div>
-			</a>			
-		</div>
-
-        <h1 style="margin-left: 43%; margin-top: 2%; margin-bottom: 2%;">List of Wanted Criminals</h1>
+        <h1 style="margin-left: 35%; margin-top: 2%; margin-bottom: 2%;">List of Wanted Criminals</h1>
 
         <?php
 
