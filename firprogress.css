@@ -96,3 +96,12 @@ input , textarea{
   border-radius: 4px;
   box-sizing: border-box;
 }
+.download-link{
+  font-size: 20px; 
+  padding-left: 30px;
+}
+.download-link a:hover{
+  color: orange;
+  transition-duration: 0.6s;
+  text-decoration: none;
+}

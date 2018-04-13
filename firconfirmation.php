@@ -27,7 +27,7 @@ if(!isset($_SESSION['username'])) {
     $firno = $_SESSION['firno'];
     $user = $_SESSION['username'];
 
-    $sql = "SELECT firno,date,place_crime,descp_crime,time,victim from firtable where username = '$user'";
+    $sql = "SELECT firno,date,place_crime,descp_crime,time,victim from firtable where firno = '$firno' ";
     $sql2 = "SELECT email from usertable where username = '$user'";
 
     $result = $conn->query($sql);
@@ -41,7 +41,6 @@ if(!isset($_SESSION['username'])) {
     $timecrime = NULL;
     $placecrime = NULL;
     $email = NULL;
-
     $row = $result->fetch_assoc();
     $row2 = $result2->fetch_assoc();
     $email =  $row2["email"];
@@ -136,6 +135,9 @@ $pdf->Output($dir,'F');
 		<div class = "normaltext">
 			FIR Number: <?php echo $_SESSION['firno']; ?><br>
 			An E-Mail has been sent to your registered Email ID with the FIR PDF.<br>
+            Want to Download FIR Manually : 
+            <a href="FIRpdf/<?php echo $_SESSION['firno']; ?>.pdf" download > Download Link </a>
+            <br>
             <a href="http://localhost/DBMS-Project/usermainpage.php"> Back to Home</a>
 		</div>
 
@@ -171,10 +173,10 @@ try
     $mail->Subject = 'FIR OTP';
     $mail->Body    = 'Attached is the FIR Information in PDF form for your records';
     $mail->send();
-    echo 'Message has been sent';
+   // echo 'Message has been sent';
 } 
 catch (Exception $e) 
 {
-    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+  //  echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
 }
 

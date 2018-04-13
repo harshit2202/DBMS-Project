@@ -186,6 +186,11 @@ if(!isset($_SESSION['username'])) {
 					
 				</tbody>
 			</table>
+			<br>
+			<p class="download-link">
+				Download the PDF of FIR by clicking one the link : 
+				<a href="FIRpdf/<?php echo $row[1]; ?>.pdf" download>Download Link</a>
+			</p>
 			<br><br>
 			<script type="text/javascript">
 				toggle();

@@ -73,7 +73,7 @@ if(!isset($_SESSION['username'])) {
 	<div class = "global">
 		<div class = "top">
 			<h1 class="display-4" style="float: left; font-weight: lighter;font-size: 50px">Online FIR Portal</h1>
-			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"><?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="" ><img src="logout.png"> Logout</a></p>
+			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"><?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="http://localhost/DBMS-Project/logout.php" ><img src="logout.png"> Logout</a></p>
 		</div>
 		<div class ="leftt">
 			<a href="http://localhost/DBMS-Project/judgemainpage.php" class = "anchor" >
@@ -101,7 +101,7 @@ if(!isset($_SESSION['username'])) {
 			</a>	
 		</div>
 		<div class = "main-panel">
-			<p style="padding-left: 100px;"> Scroll down to enter new status..</p>
+			<p style="padding-left: 200px; font-size: 20px;"> Scroll down to enter new status..</p>
 			<form method="post">
 				<label for = "firno">FIR Number </label>
 				<input type="Number" name="firno" value="<?php echo $row[1]; ?>" disabled>
