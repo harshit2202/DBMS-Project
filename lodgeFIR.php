@@ -97,7 +97,7 @@ if(!isset($_SESSION['username'])) {
 	<div class="global">
 		<div class = "top">
 			<h1 class="display-4" style="float: left; font-weight: lighter;font-size: 50px">Online FIR Portal</h1>
-			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="http://localhost/DBMS-Project/logout.php" ><img src="logout.png"> Logout</a></p>
+			<p style="float: left ; margin-left: 47%; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="http://localhost/DBMS-Project/logout.php" ><img src="logout.png"> Logout</a></p>
 		</div>
 
 		<div class ="leftt">
@@ -116,16 +116,18 @@ if(!isset($_SESSION['username'])) {
 					FIR History
 				</div>
 			</a>
-			<a href="NULL" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/nearbypolice.html" class = "anchor" >
 				<div class = "clickable">
 					Nearest Police Station
 				</div>
 			</a>
-			<a href="NULL" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/contactus.html" class = "anchor" >
 				<div class = "clickable">
 					Contact Us
 				</div>
 			</a>
+			<br><br><br><br><br><br><br><br><br>
+			<p style="color: grey; padding-left: 20px;">&copy; Proness2017-2018</p>
 		</div>
 		<div class="main-panel">
 			<form class = "lodge" method = "POST" action="<?php echo htmlspecialchars("$_SERVER[PHP_SELF]");?>">

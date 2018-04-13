@@ -9,14 +9,14 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 	<link rel="stylesheet" type="text/css" href="usermainpage.css">
-	<title>DashBoard</title>
+	<title><?php echo $_SESSION['username']; ?> - DashBoard</title>
 </head>
 <body>
 	<div class="main-page" >
 		
 		<div class="heading">
 			<span class="mainheading">Online FIR Portal</span>
-			<p style="float: left ; margin-left: 40%; margin-top: 2%;"; > <img style="margin-bottom: 1%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a style="text-decoration: none;" href="http://localhost/DBMS-Project/logout.php"><img src="logout.png"> Logout</a></p>
+			<p style="float: left; width: 60%; text-align: right; margin-top: 2%; "; > <img style="margin-bottom: 1%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a style="text-decoration: none;" href="http://localhost/DBMS-Project/logout.php"><img src="logout.png"> Logout</a></p>
 		</div>
 
 		<div class ="leftt">
@@ -44,7 +44,7 @@
 			</div>
 			</a>	
 
-			<a href="NULL" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/nearbypolice.html" class = "anchor" >
 			<div class = "clickable">
 				Nearest Police Station
 			</div>
@@ -55,6 +55,8 @@
 				Contact Us
 			</div>
 			</a>			
+			<br><br><br><br><br><br><br>
+			<p style="color: grey; padding-left: 20px;">&copy; Proness2017-2018</p>
 		</div>
 
 		<div class="news-panel">
@@ -83,12 +85,12 @@
 			</div> -->
 
 			<div class="card-outer">
-				<div><img src="news2.jpg" style="max-height: 100%; max-width: 100%;"></div>
+				<div><img src="news1.jpg" style="max-height: 100%; max-width: 100%;"></div>
 				<div class="card-inner">
 					<div class="card-inner-text">
-						<p style="color: orange;">News Heading...</p>
+						<p style="color: orange; font-size: 20px;">High Court stands in favour of MLA, Bihar Case</p>
 						<br><br>
-						<a href="index.php"><button type="submit" class="btn btn-primary" style="float: right;margin-top: 13px;">Read more....</button></a> 
+						<a href="index.php"><button type="submit" class="btn btn-primary" style="float: right;margin-top: 0px;">Read more....</button></a> 
 					</div>
 				</div>
 			</div>
@@ -101,9 +103,9 @@
 				<div><img src="news2.jpg" style="max-height: 100%; max-width: 100%;"></div>
 				<div class="card-inner">
 					<div class="card-inner-text">
-						<p style="color: orange;">News Heading...</p>
+						<p style="color: orange; font-size: 20px;">10,000 more police vacancies..</p>
 						<br><br>
-						<a href="index.php"><button type="submit" class="btn btn-primary" style="float: right; margin-top: 13px;">Read more....</button></a> 
+						<a href="index.php"><button type="submit" class="btn btn-primary" style="float: right; margin-top: 27px;">Read more....</button></a> 
 					</div>
 				</div>
 			</div>
@@ -113,12 +115,12 @@
 
 
 			<div class="card-outer-big">
-				<div><img src="news2.jpg" style="max-height: 100%; max-width: 100%;"></div>
+				<div><img src="news3.jpg" style="max-height: 100%; max-width: 100%;"></div>
 				<div class="card-inner">
 					<div class="card-inner-text">
-						<p style="color: orange; font-size: 30px;">News Heading...</p>
+						<p style="color: orange; font-size: 25px;">Allahabad High Court Orders Arrest Of Unnao BJP MLA Kuldeep Singh Sengar</p>
 						<br>
-						<p style="color: white; font-size: 18px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+						<p style="color: white; font-size: 15px;">One day after the Allahabad high court questioned the Uttar Pradesh government’s approach in handling the Unnao rape case and why the accused BJP MLA, Kuldeep Singh Sengar, had not been arrested even after an FIR, the court asked the Central Bureau of Investigation (CBI) to arrest, and not just detain, the MLA accused of raping a teenager from Unnao district in June 2017.</p>
 						<br><br>
 						<a href="index.php"><button type="submit" class="btn btn-primary" style="float: right; margin-top: 13px;">Read more....</button></a> 
 					</div>
@@ -137,12 +139,23 @@
 
 
 		<div class="right-panel">
-			<marquee direction="left" style="background-color: #171A21; color: white;">Hiiii I am marquee text..</marquee>
+			<marquee direction="left" style="background-color: #171A21; color: white;">PM, Narendra Modi visiting Allahabad on 27th April 2018</marquee>
 			<div class="right-panel-text">
 				<p>Upcoming Events in your locality</p>
-					<li>Awareness Campaign 2018-19..</li>
-					<li>Police Dharnaaaaaaa 2018</li>	
-
+					<li>Awareness Campaign 2018-19..<img src="newicon.gif" style="padding-bottom: 11px;"></li>
+					<li>Voting Event 2018<img src="newicon.gif" style="padding-bottom: 11px;"></li>	
+				<hr style="margin-right: 20px; ">
+				<p>Current Events in action..</p>
+					<li>Swach Bharat Abhiyaan-2018</li>
+					<li>CM of UP visiting Allahabad </li>
+					<li>MLA, Mr. ABC is currently visiting Prayag</li>
+					<li>Social Meet-Up at central park.</li>
+				<hr style="margin-right: 20px; ">
+				<p>Events must attend..</p>
+					<li>CM,UP at Allahabad University</li>
+					<li>PM, Narendra Modi visit on 27-04-2017</li>
+					<li>Social Environment Camp (SEC)</li>
+				<hr style="margin-right: 20px; ">
 			</div>
 
 
