@@ -144,6 +144,7 @@ html {
 .error-back:hover {
     color: #EB957D;
     text-shadow: 0 0 3px black; }
+<<<<<<< HEAD
 .support {
     padding-left: 45%;
     text-decoration: none;
@@ -152,3 +153,5 @@ html {
 .support:hover {
     color: #EB957D;
      }
+=======
+>>>>>>> 932937a633196648dd036615b91f551476dbd830
