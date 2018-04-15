@@ -8,7 +8,7 @@ if(!isset($_SESSION['username'])) {
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css" href="copmainpage.css">
+	<link rel="stylesheet"		 type="text/css" href="copmainpage.css">
 	<title>DashBoard</title>
 </head>
 <body>
@@ -44,23 +44,18 @@ if(!isset($_SESSION['username'])) {
 			</div>
 			</a>	
 
-			<a href="NULL" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/wantedpage.php" class = "anchor" >
 			<div class = "clickable">
-				Suspect List
+				Missing List
 			</div>
 			</a>	
 
-			<a href="NULL" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/contactus.html" class = "anchor" >
 			<div class = "clickable">
 				Contact Log
 			</div>
 			</a>
-
-            <a href="http://localhost/DBMS-Project/newwanted.php" class = "anchor" >
-                <div class = "clickable">
-                    Add Wanted Entry
-                </div>
-            </a>
+            
 		</div>
 
 		<div class="news-panel">
