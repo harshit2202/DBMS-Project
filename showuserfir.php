@@ -8,7 +8,7 @@ if(!isset($_SESSION['username'])) {
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="showuserfir.css">
-	<title>FIR Progress</title>
+	<title>Users-FIR</title>
 	<script type="text/javascript">
 		function toggle() {
 			if(document.getElementById('seensuspect').value == "Yes")
@@ -20,7 +20,7 @@ if(!isset($_SESSION['username'])) {
 	<div class = "global">
 		<div class = "top">
 			<h1 class="display-4" style="float: left; font-weight: lighter;font-size: 50px">Online FIR Portal</h1>
-			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"><?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="" ><img src="logout.png"> Logout</a></p>
+			<p style="float: left ; margin-left: 47%;  margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"><?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="" ><img src="logout.png"> Logout</a></p>
 		</div>
 		<div class ="leftt">
 			<a href="http://localhost/DBMS-Project/usermainpage.php" class = "anchor" >
@@ -38,19 +38,24 @@ if(!isset($_SESSION['username'])) {
 					New FIR
 				</div>
 			</a>
-			<a href="NULL" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/nearbypolice.html" class = "anchor" >
 				<div class = "clickable">
 					Nearest Police Station
 				</div>
 			</a>
-			<a href="NULL" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/contactus.html" class = "anchor" >
 				<div class = "clickable">
 					Contact Us
 				</div>
 			</a>
+			<br><br><br><br><br><br><br><br><br>
+			<p style="color: grey; padding-left: 20px;">&copy; Proness2017-2018</p>
 		</div>
 		<div class = "main-panel">
 			<p style="text-align: center;">Click on FIR no. to show its detail.</p>
+			<input type="text" style="width: 100%;" id="myInput" onkeyup="myFunction()" placeholder="Search FIR number .." title="Search FIR no.">
+			<br>
+			<br>
 			<?php
 				
 
@@ -71,7 +76,7 @@ if(!isset($_SESSION['username'])) {
 					$sql = " SELECT firno,date,time from firtable WHERE username = '$user' ";
 
 					$result = $conn->query($sql);
-					echo "<table class='table'>";
+					echo "<table class='table' id = 'myTable'>";
 					echo "<thead class='thead-dark'>";
 					echo "<tr>";
 					echo "<th scope='col' > #</th>";
@@ -104,5 +109,24 @@ if(!isset($_SESSION['username'])) {
 			?>
 		</div>
 	</div>
+		<script type="text/javascript">
+		function myFunction() {
+		  var input, filter, table, tr, td, i;
+		  input = document.getElementById("myInput");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("myTable");
+		  tr = table.getElementsByTagName("tr");
+		  for (i = 0; i < tr.length; i++) {
+		    td = tr[i].getElementsByTagName("td")[1];
+		    if (td) {
+		      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+		        tr[i].style.display = "";
+		      } else {
+		        tr[i].style.display = "none";
+		      }
+		    }       
+		  }
+		}
+	</script>
 </body>
 </html>

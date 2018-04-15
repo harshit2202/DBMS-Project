@@ -20,7 +20,7 @@ if(!isset($_SESSION['username'])) {
 	<div class = "global">
 		<div class = "top">
 			<h1 class="display-4" style="float: left; font-weight: lighter;font-size: 50px">Online FIR Portal</h1>
-			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"><?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="" ><img src="logout.png"> Logout</a></p>
+			<p style="float: left ;  width: 60%; text-align: right; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"><?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="http://localhost/DBMS-Project/logout.php" ><img src="logout.png"> Logout</a></p>
 		</div>
 		<div class ="leftt">
 			<a href="http://localhost/DBMS-Project/judgemainpage.php" class = "anchor" >
@@ -48,7 +48,10 @@ if(!isset($_SESSION['username'])) {
 			</a>	
 		</div>
 		<div class = "main-panel">
-			<p style="text-align: center;">Click on FIR no. to Update it.</p>
+			<p style="text-align: center; font-size: 20px;">Click on FIR no. to Update it.</p>
+			<input type="text" style="width: 100%;" id="myInput" onkeyup="myFunction()" placeholder="Search FIR number .." title="Search FIR no.">
+			<br>
+			<br>
 			<?php
 			
 					$servername="localhost";
@@ -67,7 +70,7 @@ if(!isset($_SESSION['username'])) {
 					$sql = " SELECT firno,date,time from firtable ";
 
 					$result = $conn->query($sql);
-					echo "<table class='table'>";
+					echo "<table class='table' id='myTable'>";
 					echo "<thead class='thead-dark'>";
 					echo "<tr>";
 					echo "<th scope='col' > #</th>";
@@ -100,5 +103,24 @@ if(!isset($_SESSION['username'])) {
 			?>
 		</div>
 	</div>
+	<script type="text/javascript">
+		function myFunction() {
+		  var input, filter, table, tr, td, i;
+		  input = document.getElementById("myInput");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("myTable");
+		  tr = table.getElementsByTagName("tr");
+		  for (i = 0; i < tr.length; i++) {
+		    td = tr[i].getElementsByTagName("td")[1];
+		    if (td) {
+		      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+		        tr[i].style.display = "";
+		      } else {
+		        tr[i].style.display = "none";
+		      }
+		    }       
+		  }
+		}
+	</script>
 </body>
 </html>

@@ -40,7 +40,7 @@ if(!isset($_SESSION['username'])) {
 		<div class="heading">
 			<span class="mainheading">Online FIR Portal</span>
 			<p style="float: left;margin-top: 1.5%; margin-left: 5%; font-size: 20px;"><a style="text-decoration: none;" href="http://localhost/DBMS-Project/copmainpage.php"><img style="margin-bottom: 8%;" src="home.png"> Home</a></p>
-			<p style="float: left ; margin-left: 38%; margin-top: 1.8%;"; > <img style="margin-bottom: 1%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp;
+			<p style="float: left ; width: 60%; text-align: right;margin-top: 1.8%;"; > <img style="margin-bottom: 1%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp;
 			 <a style="text-decoration: none;" href="http://localhost/DBMS-Project/logout.php"><img src="logout.png"> Logout</a></p>
 		</div>
 

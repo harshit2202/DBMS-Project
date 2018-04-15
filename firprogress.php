@@ -42,7 +42,7 @@ if(!isset($_SESSION['username'])) {
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="firprogress.css">
-	<title>FIR Progress</title>
+	<title>FIR Details</title>
 	<script type="text/javascript">
 		function toggle() {
 			if(document.getElementById('seensuspect').value == "Yes")
@@ -54,7 +54,7 @@ if(!isset($_SESSION['username'])) {
 	<div class = "global">
 		<div class = "top">
 			<h1 class="display-4" style="float: left; font-weight: lighter;font-size: 50px">Online FIR Portal</h1>
-			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"><?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="http://localhost/DBMS-Project/logout.php" ><img src="logout.png"> Logout</a></p>
+			<p style="float: left ;  margin-left:47%; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"><?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="http://localhost/DBMS-Project/logout.php" ><img src="logout.png"> Logout</a></p>
 		</div>
 		<div class ="leftt">
 			<a href="http://localhost/DBMS-Project/usermainpage.php" class = "anchor" >
@@ -72,16 +72,18 @@ if(!isset($_SESSION['username'])) {
 					New FIR
 				</div>
 			</a>
-			<a href="NULL" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/nearbypolice.html" class = "anchor" >
 				<div class = "clickable">
 					Nearest Police Station
 				</div>
 			</a>
-			<a href="NULL" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/contactus.html" class = "anchor" >
 				<div class = "clickable">
 					Contact Us
 				</div>
 			</a>
+			<br><br><br><br><br><br><br><br><br>
+			<p style="color: grey; padding-left: 20px;">&copy; Proness2017-2018</p>
 		</div>
 		<div class = "main-panel">
 			<form>
@@ -186,6 +188,11 @@ if(!isset($_SESSION['username'])) {
 					
 				</tbody>
 			</table>
+			<br>
+			<p class="download-link">
+				Download the PDF of FIR by clicking one the link : 
+				<a href="FIRpdf/<?php echo $row[1]; ?>.pdf" download>Download Link</a>
+			</p>
 			<br><br>
 			<script type="text/javascript">
 				toggle();

@@ -16,7 +16,7 @@ if(!isset($_SESSION['username'])) {
 		
 		<div class="heading">
 			<span class="mainheading">Online FIR Portal</span>
-			<p style="float: left ; margin-left: 50%; margin-top: 2%;"; > <img style="margin-bottom: 1%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="http://localhost/DBMS-Project/logout.php"><img src="logout.png"> Logout</a></p>
+			<p style="float: left ;  width: 60%; text-align: right; margin-top: 2%;"; > <img style="margin-bottom: 1%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="http://localhost/DBMS-Project/logout.php"><img src="logout.png"> Logout</a></p>
 		</div>
 
 		<div class ="leftt">
