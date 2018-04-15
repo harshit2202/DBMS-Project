@@ -40,7 +40,7 @@ if(!isset($_SESSION['username'])) {
 				Standing/ Update Cases
 			</div>
 			</a>
-			<a href="http://localhost/DBMS-Project/judgecontactus.html" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/contactus.html" class = "anchor" >
 			<div class = "clickable">
 				Contact Log
 			</div>

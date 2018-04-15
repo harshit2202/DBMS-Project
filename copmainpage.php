@@ -46,7 +46,7 @@ if(!isset($_SESSION['username'])) {
 
 			<a href="http://localhost/DBMS-Project/wantedpage.php" class = "anchor" >
 			<div class = "clickable">
-				Missing List
+				Wanted List
 			</div>
 			</a>	
 
