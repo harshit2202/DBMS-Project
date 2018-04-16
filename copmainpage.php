@@ -138,11 +138,23 @@ if(!isset($_SESSION['username'])) {
 
 
 		<div class="right-panel">
+			<marquee direction="left" style="background-color: #171A21; color: white;">PM, Narendra Modi visiting Allahabad on 27th April 2018</marquee>
 			<div class="right-panel-text">
 				<p>Upcoming Events in your locality</p>
-					<li>Awareness Campaign 2018-19..</li>
-					<li>Police Dharnaaaaaaa 2018</li>	
-
+					<li>Awareness Campaign 2018-19..<img src="newicon.gif" style="padding-bottom: 11px;"></li>
+					<li>Voting Event 2018<img src="newicon.gif" style="padding-bottom: 11px;"></li>	
+				<hr style="margin-right: 20px; ">
+				<p>Current Events in action..</p>
+					<li>Swach Bharat Abhiyaan-2018</li>
+					<li>CM of UP visiting Allahabad </li>
+					<li>MLA, Mr. ABC is currently visiting Prayag</li>
+					<li>Social Meet-Up at central park.</li>
+				<hr style="margin-right: 20px; ">
+				<p>Events must attend..</p>
+					<li>CM,UP at Allahabad University</li>
+					<li>PM, Narendra Modi visit on 27-04-2017</li>
+					<li>Social Environment Camp (SEC)</li>
+				<hr style="margin-right: 20px; ">
 			</div>
 
 

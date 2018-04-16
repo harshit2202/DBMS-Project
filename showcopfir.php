@@ -38,12 +38,12 @@ if(!isset($_SESSION['username'])) {
 					Update FIR
 				</div>
 			</a>
-			<a href="NULL" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/wantedpage.php" class = "anchor" >
 				<div class = "clickable">
-					Suspect List
+					Wanted List
 				</div>
 			</a>
-			<a href="NULL" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/contactus.html" class = "anchor" >
 				<div class = "clickable">
 					Contact Log
 				</div>
