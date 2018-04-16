@@ -1,10 +1,10 @@
 <!--TODO upload picture -->
 <?php session_start();
-echo "<script>togglefunc();</script>";
-if(!isset($_SESSION['username'])) {
-    header( 'Location: http://localhost/DBMS-Project/index.php');
-}
-?>
+//echo "<script>togglefunc();</script>";
+//if(!isset($_SESSION['username'])) {
+//    header( 'Location: http://localhost/DBMS-Project/index.php');
+//}
+//?>
 
 <?php
 
@@ -14,24 +14,26 @@ if(!isset($_SESSION['username'])) {
         $password ="";
         $dbname = "DBMSProject";
 
-        $conn = new mysqli($servername,$username,$password,$dbname);
 
-        $name = $_POST['name'];
-        $description = $_POST['description'];
-        $last_seen = $_POST['lastseen'];
+        $target_dir = "wanted/";
+        $conn = mysqli_connect($servername,$username,$password);
+        mysqli_select_db($conn,$dbname);
+
+        if($conn->connect_error)
+        {
+            die("connection error".$conn->connect_error);
+        }
         $filename = $_FILES["fileToUpload"]["name"];
 
         $upload = 1;
 
         $file_basename = substr($filename, 0, strripos($filename, '.')); // get file extention
         $file_ext = substr($filename, strripos($filename, '.')); // get file name
-
         if($file_ext != ".jpg" && $file_ext != ".png" && $file_ext != ".jpeg" && $file_ext != ".gif" )
         {
             echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
             $upload =0;
         }
-
         $newfilename = md5($file_basename) . $file_ext;
 
         if(file_exists("wanted/".$newfilename))
@@ -44,6 +46,32 @@ if(!isset($_SESSION['username'])) {
         {
             echo "Sorry, your file is too large.";
             $upload = 0;
+        }
+
+
+        if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], ("wanted/".$newfilename) ))
+        {
+            $name = $_POST['name'];
+            $description = $_POST['description'];
+            $lastseen = $_POST['lastseen'];
+            $addr = "wanted/".$newfilename;
+            //$var10 = $_SESSION['type'];
+            //$var11 = $_SESSION['username'];
+                $sql = "INSERT into  wantedtable (name , description , lastseen , photoaddress ) values ( '$name',  '$description' , ' $lastseen ' , '$addr' )";
+                if($upload ==1)
+                {
+                    echo "here 1";
+                    try {
+                        mysqli_query($conn,$sql);
+                    }
+                    catch (mysqli_sql_exception $exception) {
+                        echo $exception->getMessage();
+                        echo "done 1\n";
+                    }
+
+                    //header('Location:http://localhost/DBMS-Project/copmainpage.php');
+                    exit();
+                }
         }
 
     }
@@ -76,10 +104,9 @@ if(!isset($_SESSION['username'])) {
     </script>
 </head>
 <body>
-<div class="global">
     <div class = "top">
         <h1 class="display-4" style="float: left; font-weight: lighter;font-size: 50px">Online FIR Portal</h1>
-        <p style="float: left ;  width: 60%; text-align: right;margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="http://localhost/DBMS-Project/logout.php" ><img src="logout.png"> Logout</a></p>
+        <p style="float: left ; margin-left: 45%; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"> <?php //echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="http://localhost/DBMS-Project/logout.php" ><img src="logout.png"> Logout</a></p>
     </div>
 
     <div class ="leftt">
@@ -107,9 +134,9 @@ if(!isset($_SESSION['username'])) {
             </div>
         </a>
 
-        <a href="NULL" class = "anchor" >
+        <a href="http://localhost/DBMS-Project/wantedpage.php" class = "anchor" >
             <div class = "clickable">
-                Suspect List
+                Wanted List
             </div>
         </a>
 
@@ -120,8 +147,10 @@ if(!isset($_SESSION['username'])) {
         </a>
 
     </div>
+
+
     <div class="main-panel">
-        <form class = "lodge" method = "POST" action="<?php echo htmlspecialchars("$_SERVER[PHP_SELF]");?>">
+        <form class = "lodge" method = "POST" action="<?php echo htmlspecialchars("$_SERVER[PHP_SELF]");?>" enctype="multipart/form-data">
             <label for = "name">Name ( Optional )</label>
             <input type="text" name = "name">
             <label for = "description">Description</label>
@@ -129,7 +158,7 @@ if(!isset($_SESSION['username'])) {
             <label for = "lastseen">Last Seen ( Optional )</label>
             <input id = "datefield" type="date" max="2019-09-03" name = "lastseen"><br>
             <label for="image"  style="padding-top: 1%">Image</label>
-            <input type="file" required name = "fileToUpload">
+            <input type="file"  name = "fileToUpload" id = "fileToUpload" required>
             <button type="submit" name="submit" > Submit Details</button>
             <br><br><br>
         </form>
@@ -137,7 +166,6 @@ if(!isset($_SESSION['username'])) {
     <script type="text/javascript">
         maxDateSetter();
     </script>
-</div>
 <script type="text/javascript">
     maxDateSetter();
 </script>
