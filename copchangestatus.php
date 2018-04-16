@@ -91,12 +91,8 @@ if(!isset($_SESSION['username'])) {
 					Check FIR Records
 				</div>
 			</a>
-			<a href="NULL" class = "anchor" >
-				<div class = "clickable">
-					Suspect List
-				</div>
-			</a>
-			<a href="NULL" class = "anchor" >
+			
+			<a href="http://localhost/DBMS-Project/contactus.php" class = "anchor" >
 				<div class = "clickable">
 					Contact Log
 				</div>
