@@ -90,7 +90,7 @@
 					<div class="card-inner-text">
 						<p style="color: orange; font-size: 20px;">High Court stands in favour of MLA, Bihar Case</p>
 						<br><br>
-						<a href="http://localhost/DBMS-Project/newspage.html"><button type="submit" class="btn btn-primary" style="float: right;margin-top: 0px;">Read more....</button></a> 
+						<a href="http://localhost/DBMS-Project/news1.html"><button type="submit" class="btn btn-primary" style="float: right;margin-top: 0px;">Read more....</button></a> 
 					</div>
 				</div>
 			</div>
@@ -105,7 +105,7 @@
 					<div class="card-inner-text">
 						<p style="color: orange; font-size: 20px;">10,000 more police vacancies..</p>
 						<br><br>
-						<a href="http://localhost/DBMS-Project/newspage.html"><button type="submit" class="btn btn-primary" style="float: right; margin-top: 27px;">Read more....</button></a> 
+						<a href="http://localhost/DBMS-Project/news2.html"><button type="submit" class="btn btn-primary" style="float: right; margin-top: 27px;">Read more....</button></a> 
 					</div>
 				</div>
 			</div>
@@ -122,7 +122,7 @@
 						<br>
 						<p style="color: white; font-size: 15px;">One day after the Allahabad high court questioned the Uttar Pradesh government’s approach in handling the Unnao rape case and why the accused BJP MLA, Kuldeep Singh Sengar, had not been arrested even after an FIR, the court asked the Central Bureau of Investigation (CBI) to arrest, and not just detain, the MLA accused of raping a teenager from Unnao district in June 2017.</p>
 						<br><br>
-						<a href="http://localhost/DBMS-Project/newspage.html"><button type="submit" class="btn btn-primary" style="float: right; margin-top: 13px;">Read more....</button></a> 
+						<a href="http://localhost/DBMS-Project/news3.html"><button type="submit" class="btn btn-primary" style="float: right; margin-top: 13px;">Read more....</button></a> 
 					</div>
 				</div>
 			</div>
