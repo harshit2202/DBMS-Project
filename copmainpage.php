@@ -1,8 +1,8 @@
-<?php session_start();
-if(!isset($_SESSION['username'])) {
-    header( 'Location: http://localhost/DBMS-Project/index.php');
-}
-?>
+<?php //session_start();
+//if(!isset($_SESSION['username'])) {
+//    header( 'Location: http://localhost/DBMS-Project/index.php');
+//}
+//?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,11 +50,17 @@ if(!isset($_SESSION['username'])) {
 			</div>
 			</a>	
 
-			<a href="http://localhost/DBMS-Project/contactus.html" class = "anchor" >
+			<a href="http://localhost/DBMS-Project/newwanted.php" class = "anchor" >
 			<div class = "clickable">
-				Contact Log
+				Add New Wanted
 			</div>
 			</a>
+
+            <a href="http://localhost/DBMS-Project/contactus.html" class = "anchor" >
+                <div class = "clickable">
+                    Contact Log
+                </div>
+            </a>
             
 		</div>
 

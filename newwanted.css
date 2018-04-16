@@ -1,17 +1,15 @@
-body {
+*{
     margin: 0;
 }
-.global {
+html,body{
     height: 100%;
     width: 100%;
-    overflow: hidden;
 }
 .top {
     height: 12%;
-    background-color: #e9ecef;
-    padding-top:1%;
-    padding-bottom: 6%;
-    padding-left: 5%;
+    width: 100%;
+    background-color: #BABDBF;
+    border-bottom: solid #333;
 }
 .leftt{
     float: left;

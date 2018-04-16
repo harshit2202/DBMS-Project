@@ -27,7 +27,6 @@ if(!isset($_SESSION['username'])) {
     	$file_basename = substr($filename, 0, strripos($filename, '.')); // get file extention
 		$file_ext = substr($filename, strripos($filename, '.')); // get file name
 
-		echo $file_ext;
     	if($file_ext != ".jpg" && $file_ext != ".png" && $file_ext != ".jpeg" && $file_ext != ".gif" ) 
     	{
    			echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
@@ -47,7 +46,6 @@ if(!isset($_SESSION['username'])) {
 		    echo "Sorry, your file is too large.";
 		    $upload = 0;
 		}
-		echo $upload;
 
 		if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], ("upload/".$newfilename) ))
 		{
