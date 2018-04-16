@@ -1,10 +1,9 @@
-<!--TODO upload picture -->
 <?php session_start();
-//echo "<script>togglefunc();</script>";
-//if(!isset($_SESSION['username'])) {
-//    header( 'Location: http://localhost/DBMS-Project/index.php');
-//}
-//?>
+echo "<script>togglefunc();</script>";
+if(!isset($_SESSION['username'])) {
+   header( 'Location: http://localhost/DBMS-Project/index.php');
+}
+?>
 
 <?php
 
@@ -105,8 +104,8 @@
 </head>
 <body>
     <div class = "top">
-        <h1 class="display-4" style="float: left; font-weight: lighter;font-size: 50px">Online FIR Portal</h1>
-        <p style="float: left ; margin-left: 45%; margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"> <?php //echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="http://localhost/DBMS-Project/logout.php" ><img src="logout.png"> Logout</a></p>
+        <span class="mainheading">Online FIR Portal</span>
+            <p style="float: left ; width: 60%; text-align: right; margin-top: 2%;"; > <img style="margin-bottom: 1%;" src="user.png"> <?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="http://localhost/DBMS-Project/logout.php"><img src="logout.png"> Logout</a></p>
     </div>
 
     <div class ="leftt">
@@ -140,7 +139,7 @@
             </div>
         </a>
 
-        <a href="NULL" class = "anchor" >
+        <a href="http://localhost/DBMS-Project/contactus.html" class = "anchor" >
             <div class = "clickable">
                 Contact Log
             </div>
