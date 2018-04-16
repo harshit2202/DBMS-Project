@@ -105,7 +105,7 @@
 
 				<br><br><br><br><br><br>
 				<p style="margin-bottom: 0;">Already Registered?</p>
-				<p style="margin-bottom: 14%;"><a href="index.php">Sign In</a></p>
+				<p style="margin-bottom: 14%;"><a href="http://localhost/DBMS-Project/index.php">Sign In</a></p>
 				<p style="color: grey;">&copy; Proness2017-2018</p>
 			</div>
 
