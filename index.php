@@ -121,21 +121,15 @@ $_SESSION['loginTrial'] = "";
 		    <input name="Username" required <?php echo isset($_POST['Username'])?'value="'.htmlspecialchars($_POST['Username']).'"':''; ?> type="text"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
 		    <small id="emailHelp" class="form-text text-muted">We'll never share your details with anyone else.</small>
 		  </div>
-		  <div class="form-group">
+		  <div class="form-group" style="margin-bottom: 0;">
 		    <label for="exampleInputPassword1">Password</label>
 		    <input required type="password" name="Password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 		    <small id="emailHelp" class="form-text text-muted">Never share your password with anyone.</small>
+		    <a href="http://localhost/DBMS-Project/forgotpassword1.php" style="text-decoration: none;">Forgot Password?</a>
 		  </div>
 		  
 		    <div class="dropdown" style="float: left; margin-top: 10%;" id="dropp">
-			  <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			    Select Any..
-			  </button> -->
-			  <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenu2" >
-			    <button class="dropdown-item" type="button" id="bt1">Cop</button>
-			    <button class="dropdown-item" type="button" id="bt2">Citizen</button>
-			    <button class="dropdown-item" type="button" id="bt3">Judge</button>
-			  </div> -->
+
 			  <div class="form-group" >
 				  <select class="form-control" id="sel1" name="cars" required>
 				  	<option value="">Select any..</option>
