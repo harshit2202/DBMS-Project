@@ -18,24 +18,64 @@
 	{
 		
 		$user = $_POST['Username'];
-		
-		$sql = "SELECT email FROM coptable WHERE username='$user' AND password='$pass' ";
-		$result = $conn->query($sql);
-		if($result->num_rows == 1)
+		$type = $_POST['cars'];
+		if($type=="cop")
 		{
-			$row = mysqli_fetch_row($result);
-			$_SESSION['username'] = $user;
-			$_SESSION['email'] = $row["email"];
-			header('Location: http://localhost/DBMS-Project/forgotpasswordotp.php');
-			exit();
+			$sql = "SELECT email FROM coptable WHERE username='$user' ";
+			$result = $conn->query($sql);
+			$sql = $result->fetch_assoc();
+			if($result->num_rows == 1)
+			{
+				$_SESSION['username'] = $user;
+				$_SESSION['type'] = "cop";
+				$_SESSION['otp'] = mt_rand(1000,9999);
+				$_SESSION['email'] = $row["email"];
+				header('Location: http://localhost/DBMS-Project/forgotpasswordotp.php');
+				exit();
+			}
+			else
+			{
+			    alert("Username does not exist. ");
+			}
+		}
+		elseif($type=="citizen")
+		{
+			$sql = "SELECT email FROM usertable WHERE username='$user' ";
+			$result = $conn->query($sql);
+			$sql = $result->fetch_assoc();
+			if($result->num_rows == 1)
+			{
+				$_SESSION['username'] = $user;
+				$_SESSION['type'] = "citizen";
+				$_SESSION['otp'] = mt_rand(1000,9999);
+				$_SESSION['email'] = $row["email"];
+				header('Location: http://localhost/DBMS-Project/forgotpasswordotp.php');
+				exit();
+			}
+			else
+			{
+			    alert("Username does not exist. ");
+			}
 		}
 		else
 		{
-		    alert("Username does not exist");
+			$sql = "SELECT email FROM judgetable WHERE username='$user' ";
+			$result = $conn->query($sql);
+			$sql = $result->fetch_assoc();
+			if($result->num_rows == 1)
+			{
+				$_SESSION['username'] = $user;
+				$_SESSION['type'] = "judge";
+				$_SESSION['otp'] = mt_rand(1000,9999);
+				$_SESSION['email'] = $row["email"];
+				header('Location: http://localhost/DBMS-Project/forgotpasswordotp.php');
+				exit();
+			}
+			else
+			{
+			    alert("Username does not exist. ");
+			}
 		}
-		
-		//header('Location: http://localhost/TestFolder/cop1.php');
-		//exit();
 	}
 	function alert($msg){
 		echo "<script> alert('$msg'); </script>";
@@ -75,6 +115,18 @@
 		    <input name="Username" required <?php echo isset($_POST['Username'])?'value="'.htmlspecialchars($_POST['Username']).'"':''; ?> type="text"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
 		    <small id="emailHelp" class="form-text text-muted">Enter the one you entered at registration.</small>
 		  </div>
+
+		  <div class="dropdown" style="float: left; margin-top: 10%;" id="dropp">
+
+			  <div class="form-group" >
+				  <select class="form-control" id="sel1" name="cars" required>
+				  	<option value="">Select any..</option>
+				    <option value="cop" <?php if(isset($_POST['cars']) && $_POST['cars'] == "cop") echo "selected"?>>Cop</option>
+				    <option value="citizen" <?php if(isset($_POST['cars']) && $_POST['cars'] == "citizen") echo "selected"?>>Citizen</option>
+				    <option value="judge" <?php if(isset($_POST['cars']) && $_POST['cars'] == "judge") echo "selected"?> >Judge</option>
+				  </select>
+				</div>
+            </div>
 
 		  <button type="submit" class="btn btn-primary" name="submit-btnn" style="float: right; margin-top: 10%;">Submit</button>
 
