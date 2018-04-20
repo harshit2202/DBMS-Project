@@ -18,6 +18,19 @@ if(!isset($_SESSION['username'])) {
 		die("connection error".$conn->connect_error);
 	}
 
+	if($_SESSION['type']=='cop')
+		$tabletype = 'coptable';
+	elseif ($_SESSION['type']=='citizen') {
+	 	$tabletype = 'citizentable';
+	}
+	elseif ($_SESSION['type']=='judge') {
+	 	$tabletype = 'judge';
+	}  
+
+
+
+
+
 	$sql = "SELECT * FROM coptable WHERE username= '$user' ";   //comment
 	
 	$result = $conn->query($sql);
@@ -29,7 +42,7 @@ if(!isset($_SESSION['username'])) {
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css" href="copprofile.css">
+	<link rel="stylesheet" type="text/css" href="editprofile.css">
 	<title><?php echo $_SESSION['username']; ?> - Profile</title>
 
 </head>
@@ -52,36 +65,36 @@ if(!isset($_SESSION['username'])) {
 			</div>
 			
 			<div class="information">
-
+			<form>
 				<p style="margin-bottom: 0;">COP Registration number : </p>
-				<p style="font-size: 25px;"><b><?php echo $row["copID"]; ?></b></p>
+				<input type="text" name="username" placeholder=<?php echo $row['copID'];?>>
 
 				<br>
 
 				<p style="margin-bottom: 0;">Name : </p>
-				<p style="font-size: 25px;"><b><?php echo $row["name"]; ?></b></p>
-
+				<input type="text" name="name" placeholder=<?php echo $row['name'];?>>
 				<br>
 
 				<p style="margin-bottom: 0;">Username : </p>
-				<p style="font-size: 25px;"><b><?php echo $row["username"]; ?></b></p>
+				<input type="text" name="username" placeholder=<?php echo $row['username'];?>>
 
 				<br>
 
 				<p style="margin-bottom: 0;">Email - ID : </p>
-				<p style="font-size: 25px;"><b><?php echo $row["email"]; ?></b></p>
+				<input type="text" name="email" placeholder=<?php echo $row['email'];?>>
 
 				<br>
 
 				<p style="margin-bottom: 0;">Contact number : </p>
-				<p style="font-size: 25px;"><b><?php echo $row["phoneno"]; ?></b></p>
+				<input type="text" name="phoneno" placeholder=<?php echo $row['phoneno'];?>>
 
 				<br>
 
 				<p style="margin-bottom: 0;">Address : </p>
-				<p style="font-size: 25px;"><b><?php echo $row["address"]; ?></b></p>
+				<input type="text" name="address" placeholder=<?php echo $row['address'];?>>
+				<button type="submit" class="btn btn-primary" name="submit-btnn" >Submit</button>
 
-
+			</form>		
 			</div>
 
 		</div>

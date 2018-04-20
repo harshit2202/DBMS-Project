@@ -23,6 +23,7 @@ $_SESSION['loginTrial'] = "";
 		
 		$user = $_POST['Username'];
 		$pass = $_POST['Password'];
+		$pass = md5($pass);
 		$type = $_POST['cars'];
 		if($type=="cop")
 		{

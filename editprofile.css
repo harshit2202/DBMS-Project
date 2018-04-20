@@ -1,0 +1,87 @@
+.*{
+	margin: 0;
+}
+html,body{
+	height: 100%;
+	width: 100%;
+}
+.main-page{
+	height: 100%;
+	width: 100%;	
+}
+.heading{
+	height: 12%;
+	width: 100%;
+	background-color: #BABDBF;
+	border-bottom: 0.5px solid #333;
+}
+.mainheading{
+	font-weight: normal;
+	font-size: 250%;
+	margin-left: 5%;
+	padding-top: 0.5%;
+	float: left;
+	font-style: normal;
+}
+.details-section{
+	width: 100%;
+	height: 88%;
+	background-color: #F5F5F5;
+}
+.image-initials{
+	height : 100%;
+	padding-left: 7%;
+	padding-right: 3%;
+	padding-top: 8%;
+	float: left;
+	border-right: 2px solid grey;
+	width: 29%;
+}
+.image-initials img{
+	max-width: 250px;
+	max-height: 250px;
+}
+.information{
+	height: 100%;
+	width: 70.85%;
+	float: left;
+	padding-top: 2%;
+	padding-left: 5%;
+	overflow: auto;
+}
+input {
+    background-color: transparent;
+    border: 0px solid;
+    height: 33px;
+    width: 800px;
+    color: #000000;
+    font-size: 25px;
+    margin-bottom:3.3%;
+    font-weight: bold;
+
+}
+p{
+	font-size: 18px;
+}
+.btn-primary{
+	width: 50%;
+	margin-top:1.2%;
+	text-align: center;r;
+
+}
+
+::-webkit-scrollbar{
+	width: 6px;
+}
+
+::-webkit-scrollbar-track{
+	background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb{
+	background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover{
+	background: #555; 
+}

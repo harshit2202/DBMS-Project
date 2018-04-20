@@ -62,6 +62,7 @@
 	            $var3 = $_SESSION['username'];
 	            $var4 = $_SESSION['email'];
 	            $var5 = $_SESSION['password'];
+	            $var5 = md5($var5);
 	            $var6 = $_SESSION['address'];
 	            $var7 = (int)$_SESSION['phone-no'];
 	            $sql = "INSERT INTO coptable (copID,name,username,email,password,address,phoneno) VALUES ('$var1','$var2','$var3','$var4','$var5','$var6','$var7')";
