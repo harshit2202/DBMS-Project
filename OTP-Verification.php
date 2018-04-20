@@ -1,6 +1,11 @@
-<?php session_start(); ?>
+<?php session_start();
+    if(!isset($_SESSION['otp'])) {
+        session_destroy();
+        header('Location:http://localhost/DBMS-Project/index.php');
+    }
+?>
 <?php
-
+    echo "otp sent";
 	$emaill = $_SESSION['email'];
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\Exception;
@@ -16,14 +21,11 @@
 	    $mail->SMTPSecure = 'tls';                            
 	    $mail->Port = 587;                                    
 	    $mail->setFrom('mridulgupta11944@gmail.com', 'Mridul');
-	    $mail->addAddress($emaill, 'Prathmesh');    
-	  //  $mail->addAddress('IIT2016055@iiita.ac.in', 'Harshit');
-	    //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-	    //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-	    $mail->isHTML(true);                                  // Set email format to HTML
+	    $mail->addAddress($emaill, 'Prathmesh');
+	    $mail->isHTML(true);
 	    $varr = $_SESSION['otp'];
-	    $mail->Subject = 'Chal Gaya ganduu'.$varr;
-	    $mail->Body    = '<h1>Maa K Lode</h1>';
+	    $mail->Subject = 'Online FIR Portal OTP is '.$varr;
+	    $mail->Body    = '<h1>Kindly use the OTP to proceed with registeration on Online FIR Portal.</h1>';
 	    $mail->send();
 	    echo 'Message has been sent';
 	} 
@@ -32,8 +34,6 @@
 	    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
 	}
 
-
-//******************************
 
     $servername="localhost";
     $username="root";   
@@ -145,6 +145,7 @@
 				    <button type="submit" name="submit-btnn" class="btn btn-primary">Submit</button>
 				</form>
 		  	</div>
+            <a href="OTP-Verification.php"><img src="retry.png" style="margin-left: 60%">Resend OTP</a>
 		  	<br><br><br>
 		  	<p style="color: grey; margin-left: 25%; margin-bottom: 0;">Wanna Sign-in <a href="try.html" style="text-decoration: underline;">Home Page</a></p>
 		  	<p style="color: grey; margin-left: 30%">&copy;Proness2017-2018</p>
