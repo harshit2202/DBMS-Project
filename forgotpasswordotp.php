@@ -1,6 +1,10 @@
-<?php session_start(); ?>
+<?php session_start();
+if(!isset($_SESSION['otp'])) {
+    session_destroy();
+    header('Location:http://localhost/DBMS-Project/index.php');
+}
+?>
 <?php
-	echo $_SESSION['otp'];
 	$emaill = $_SESSION['email'];
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\Exception;
@@ -87,14 +91,13 @@
 			<br>
 			<div class="form-group">
 				<form method="POST" >
-					<small class="form-text text-muted">Enter OTP ( One Time Password ) <br> We have just sent to your Registered E-mail ID.</small>
-					<br>
 				    <input type="password" class="form-control" id="exampleInputEmail1" name ="otpp" aria-describedby="emailHelp" placeholder="Enter OTP (One Time Password)">
 				    <button type="submit" name="submit-btnn" class="btn btn-primary">Submit</button>
 				</form>
 		  	</div>
-		  	<br>
-		  	<p style="color: grey; margin-left: 25%; margin-bottom: 0;">Wanna Sign-in <a href="try.html" style="text-decoration: none;">Home Page</a></p>
+            <a href="forgotpasswordotp.php"><img src="retry.png" style="margin-left: 60%">Resend OTP</a>
+		  	<br><br><br>
+		  	<p style="color: grey; margin-left: 25%; margin-bottom: 0;">Wanna Sign-in <a href="index.php" style="text-decoration: none;">Home Page</a></p>
 		  	<p style="color: grey; margin-left: 30%">&copy;Proness2017-2018</p>
 		</div>
 	</div>
