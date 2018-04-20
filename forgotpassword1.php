@@ -17,10 +17,25 @@
 	if(isset($_REQUEST['submit-btnn']))
 	{
 		
-		//Write backend here.............
-
-		//
-
+		$user = $_POST['Username'];
+		
+		$sql = "SELECT email FROM coptable WHERE username='$user' AND password='$pass' ";
+		$result = $conn->query($sql);
+		if($result->num_rows == 1)
+		{
+			$row = mysqli_fetch_row($result);
+			$_SESSION['username'] = $user;
+			$_SESSION['email'] = $row["email"];
+			header('Location: http://localhost/DBMS-Project/forgotpasswordotp.php');
+			exit();
+		}
+		else
+		{
+		    alert("Username does not exist");
+		}
+		
+		//header('Location: http://localhost/TestFolder/cop1.php');
+		//exit();
 	}
 	function alert($msg){
 		echo "<script> alert('$msg'); </script>";
@@ -39,7 +54,7 @@
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-	<title>MainPage</title>
+	<title>Password Recovery</title>
 </head>
 <body>
 	<div class="jumbotron jumbotron-fluid">
