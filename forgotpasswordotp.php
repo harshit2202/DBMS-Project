@@ -95,7 +95,7 @@ if(!isset($_SESSION['otp'])) {
 				    <button type="submit" name="submit-btnn" class="btn btn-primary">Submit</button>
 				</form>
 		  	</div>
-            <a href="forgotpasswordotp.php"><img src="retry.png" style="margin-left: 60%">Resend OTP</a>
+            <a href="forgotpasswordotp.php" style="text-decoration: none;"><img src="retry.png" style="margin-left: 60%">Resend OTP</a>
 		  	<br><br><br>
 		  	<p style="color: grey; margin-left: 25%; margin-bottom: 0;">Wanna Sign-in <a href="index.php" style="text-decoration: none;">Home Page</a></p>
 		  	<p style="color: grey; margin-left: 30%">&copy;Proness2017-2018</p>
