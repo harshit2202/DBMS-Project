@@ -1,5 +1,4 @@
 <?php session_start();
-$_SESSION['loginTrial'] = "";
 ?>
 <?php session_destroy(); ?>
 <?php session_start(); ?>
@@ -48,7 +47,7 @@ $_SESSION['loginTrial'] = "";
 			if($result->num_rows == 1) // Have  to do exception Handling here when the password and username dont Match.
 			{
 				$_SESSION['username'] = $user;
-				$_SESSION['type'] = "citizen";
+				$_SESSION['type'] = "user";
 				header('Location: http://localhost/DBMS-Project/usermainpage.php');
 				exit();
 			}

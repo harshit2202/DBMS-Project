@@ -5,35 +5,6 @@
     }
 ?>
 <?php
-    echo "otp sent";
-	$emaill = $_SESSION['email'];
-	use PHPMailer\PHPMailer\PHPMailer;
-	use PHPMailer\PHPMailer\Exception;
-	require 'vendor/autoload.php';
-	$mail = new PHPMailer(true);                             
-	try 
-	{                            
-	    $mail->isSMTP();                                      
-	    $mail->Host = 'smtp.gmail.com';  
-	    $mail->SMTPAuth = true;                               
-	    $mail->Username = 'mridulgupta11944@gmail.com';                
-	    $mail->Password = 'mridul1809';                           
-	    $mail->SMTPSecure = 'tls';                            
-	    $mail->Port = 587;                                    
-	    $mail->setFrom('mridulgupta11944@gmail.com', 'Mridul');
-	    $mail->addAddress($emaill, 'Prathmesh');
-	    $mail->isHTML(true);
-	    $varr = $_SESSION['otp'];
-	    $mail->Subject = 'Online FIR Portal OTP is '.$varr;
-	    $mail->Body    = '<h1>Kindly use the OTP to proceed with registeration on Online FIR Portal.</h1>';
-	    $mail->send();
-	    echo 'Message has been sent';
-	} 
-	catch (Exception $e) 
-	{
-	    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
-	}
-
 
     $servername="localhost";
     $username="root";   
@@ -47,80 +18,74 @@
         die("connection error".$conn->connect_error);
     }
 
-    echo "Connected Successfully";
     if(isset($_REQUEST['submit-btnn']))
     {
-        $va11 = $_POST['otpp'];
-        if($_SESSION['otp'] == $va11)
-        {
 
-        	$type = $_SESSION['type'];
+        if($_POST['password']==$_POST['repassword'])
+        {
+            echo "hello";
+            $type = $_SESSION['type'];
+            $user = $_SESSION['username'];
+            $varr = $_POST['password'];
+            echo $type.$user.$varr;
         	if($type =="cop")
         	{
-	            $var1 = $_SESSION['police-id'];
-	            $var2 = $_SESSION['name'];
-	            $var3 = $_SESSION['username'];
-	            $var4 = $_SESSION['email'];
-	            $var5 = $_SESSION['password'];
-	            $var5 = md5($var5);
-	            $var6 = $_SESSION['address'];
-	            $var7 = (int)$_SESSION['phone-no'];
-	            $sql = "INSERT INTO coptable (copID,name,username,email,password,address,phoneno) VALUES ('$var1','$var2','$var3','$var4','$var5','$var6','$var7')";
-	            if ($conn->query($sql) === TRUE) 
-	            {
-	                echo "New record created successfully";
-
-	            } 
-	            else 
-	            {
-	                echo "Error: " . $sql . "<br>" . $conn->error;
-	            }
-				$conn->close();     
+	            $sql = "UPDATE coptable set password = '$varr' where username = '$user'"; 
+                if ($conn->query($sql) === TRUE) 
+                {
+                    alert("Password has been changed successfully");
+                    session_destroy();
+                    header('Location: http://localhost/DBMS-Project/passwordchanged.php');
+                    exit();
+                } 
+                else
+                {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+                $conn->close();   
 			}
-			elseif($type =="judge")
+			else if($type =="judge")
         	{
-	            $var1 = $_SESSION['judge-id'];
-	            $var2 = $_SESSION['name'];
-	            $var3 = $_SESSION['address'];
-	            $var4 = (int)$_SESSION['phone-no'];
-	            $var5 = $_SESSION['username'];
-	            $var6 = $_SESSION['password'];
-	            $var7 = $_SESSION['email'];
-	            $sql = "INSERT INTO judgetable (judgeID,name,address,phoneno,username,password,email) VALUES ('$var1','$var2','$var3','$var4','$var5','$var6','$var7')";
-	            if ($conn->query($sql) === TRUE) {
-	                echo "New record created successfully";
-	            } else {
-	                echo "Error: " . $sql . "<br>" . $conn->error;
-	            }
-
-	            $conn->close();      
+	            $sql = "UPDATE judgetable set password = '$varr' where username = '$user'";  
+                if ($conn->query($sql) === TRUE) 
+                {
+                    alert("Password has been changed successfully");
+                    session_destroy();
+                    header('Location: http://localhost/DBMS-Project/passwordchanged.php');
+                    exit();
+                } 
+                else
+                {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+                $conn->close();  
 			}
-			elseif($type =="user")
+			else if($type =="user")
         	{
-	            $var2 = $_SESSION['name'];
-	            $var3 = $_SESSION['password'];
-	            $var4 = $_SESSION['username'];
-	            $var5 = $_SESSION['email'];
-	            $var6 = (int)$_SESSION['phone-no'];
-	            $var7 = $_SESSION['address'];
-	            $sql = "INSERT INTO usertable (name,password,username,email,phoneno,address) VALUES ('$var2','$var3','$var4','$var5','$var6','$var7')";
-	            if ($conn->query($sql) === TRUE) {
-	                echo "New record created successfully";
-	            } else {
-	                echo "Error: " . $sql . "<br>" . $conn->error;
-	            }
-
-	            $conn->close();  
-	        }  
+                echo "hello1";
+	            $sql = "UPDATE usertable set password = '$varr' where username = '$user'"; 
+                if ($conn->query($sql) === TRUE) 
+                {
+                    alert("Password has been changed successfully");
+                    session_destroy();
+                    header('Location: http://localhost/DBMS-Project/passwordchanged.php');
+                    exit();
+                } 
+                else
+                {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+                $conn->close();
+    	        }   
         }
-
-        session_destroy();
-        session_start();
-        $_SESSION['username'] = $var3;
-        $_SESSION['type'] = $type;
-        header('Location:http://localhost/DBMS-Project/uploadpic.php');
-        exit();
+        else
+        {
+        	alert("Passwords do not match.");
+        }
     }
+    function alert($msg){
+		echo "<script> alert('$msg'); </script>";
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -138,7 +103,7 @@
 			<div class="mericlass">
 				<img src="user-otp.png" class="rounded-circle">
 			</div>
-			<p style="text-align: center; font-size: 25px;"><?php echo "Username"; ?></p>
+			<p style="text-align: center; font-size: 25px;"><?php echo $_SESSION['username']; ?></p>
 			<br>
 			<div class="form-group">
 				<form method="POST" >
