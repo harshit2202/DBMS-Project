@@ -67,13 +67,27 @@ if(!isset($_SESSION['username'])) {
 			if(document.getElementById('seensuspect').value == "Yes")
 				document.getElementById('optional').style.display = 'block';
 		}
+		 function maxDateSetter() {
+	        var today = new Date();
+	        var dd = today.getDate();
+	        var mm = today.getMonth()+1; //January is 0!
+	        var yyyy = today.getFullYear();
+	        if(dd<10){
+	            dd='0'+dd
+	        }
+	        if(mm<10){
+	            mm='0'+mm
+	        }
+	        today = yyyy+'-'+mm+'-'+dd;
+	        document.getElementById("datefield").setAttribute("max", today);
+	    }
 	</script>
 </head>
 <body>
 	<div class = "global">
 		<div class = "top">
 			<h1 class="display-4" style="float: left; font-weight: lighter;font-size: 50px">Online FIR Portal</h1>
-			<p style="float: left ;  width: 60%; text-align: right;margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"><?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="http://localhost/DBMS-Project/logout.php" ><img src="logout.png"> Logout</a></p>
+			<p style="float: left ;  margin-left: 45%;margin-top: 2%;"; > <img style="margin-bottom: 3%;" src="user.png"><?php echo $_SESSION['username'] ; ?> &nbsp; &nbsp; &nbsp; <a href="http://localhost/DBMS-Project/logout.php" ><img src="logout.png"> Logout</a></p>
 		</div>
 		<div class ="leftt">
 			<a href="http://localhost/DBMS-Project/copmainpage.php" class = "anchor" >
@@ -206,7 +220,7 @@ if(!isset($_SESSION['username'])) {
 				<label for = "firno">Date of new status </label>
 				<input type="date" name="newdate" required>
 				<label for = "time">Time of new status </label>
-				<input type="time" name="newtime" required >
+				<input id="datefield" type="time" name="newtime" max="2019-09-03" required >
 				<input type="submit" name="submit-btn" class="btn-primary">
 			</form>
 
@@ -216,6 +230,9 @@ if(!isset($_SESSION['username'])) {
 			<script type="text/javascript">
 				toggle();
 			</script>
+		    <script type="text/javascript">
+		        maxDateSetter();
+		    </script>
 		</div>
 	</div>
 </body>

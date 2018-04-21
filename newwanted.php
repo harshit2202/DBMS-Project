@@ -30,27 +30,26 @@ if(!isset($_SESSION['username'])) {
         $file_ext = substr($filename, strripos($filename, '.')); // get file name
         if($file_ext != ".jpg" && $file_ext != ".png" && $file_ext != ".jpeg" && $file_ext != ".gif" )
         {
-            alert( "Sorry, only JPG, JPEG, PNG & GIF files are allowed." );
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
             $upload =0;
         }
         $newfilename = md5($file_basename) . $file_ext;
 
         if(file_exists("wanted/".$newfilename))
         {
-            alert( "Sorry, file already exists.");
+            echo "Sorry, file already exists.";
             $upload = 0;
         }
 
         if ($_FILES["fileToUpload"]["size"] > 5000000)
         {
-            alert ("Sorry, your file is too large.");
+            echo "Sorry, your file is too large.";
             $upload = 0;
         }
 
 
         if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], ("wanted/".$newfilename) ))
         {
-            echo "hello";
             $name = $_POST['name'];
             $description = $_POST['description'];
             $lastseen = $_POST['lastseen'];
@@ -60,25 +59,20 @@ if(!isset($_SESSION['username'])) {
                 $sql = "INSERT into  wantedtable (name , description , lastseen , photoaddress ) values ( '$name',  '$description' , ' $lastseen ' , '$addr' )";
                 if($upload ==1)
                 {
-                    // try {
-                    //     mysqli_query($conn,$sql);
-                    //     alert("Successfully added");
-                    //     header('Location:http://localhost/DBMS-Project/newwanted.php');
-                    //     exit();
-                    // }
-                    // catch (mysqli_sql_exception $exception) {
-                    //     alert ($exception->getMessage());
-                    // }
-                    $conn->query($sql);
-                    alert("Successfully added");
-                    header('Location:http://localhost/DBMS-Project/copmainpage.php');
+                    echo "here 1";
+                    try {
+                        mysqli_query($conn,$sql);
+                    }
+                    catch (mysqli_sql_exception $exception) {
+                        echo $exception->getMessage();
+                        echo "done 1\n";
+                    }
+
+                    //header('Location:http://localhost/DBMS-Project/copmainpage.php');
                     exit();
                 }
         }
 
-    }
-    function alert($msg){
-        echo "<script> alert('$msg'); </script>";
     }
 ?>
 

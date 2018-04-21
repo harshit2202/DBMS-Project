@@ -67,6 +67,20 @@ if(!isset($_SESSION['username'])) {
 			if(document.getElementById('seensuspect').value == "Yes")
 				document.getElementById('optional').style.display = 'block';
 		}
+		 function maxDateSetter() {
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+            var yyyy = today.getFullYear();
+            if(dd<10){
+                dd='0'+dd
+            }
+            if(mm<10){
+                mm='0'+mm
+            }
+            today = yyyy+'-'+mm+'-'+dd;
+            document.getElementById("datefield").setAttribute("max", today);
+        }
 	</script>
 </head>
 <body>
@@ -208,7 +222,7 @@ if(!isset($_SESSION['username'])) {
 				<label for = "firno">Date of new status </label>
 				<input type="date" name="newdate" required>
 				<label for = "time">Time of new status </label>
-				<input type="time" name="newtime" required >
+				<input id="datefield" type="time" max="2008-04-04" name="newtime" required >
 				<input type="submit" name="submit-btn" class="btn-primary">
 			</form>
 
