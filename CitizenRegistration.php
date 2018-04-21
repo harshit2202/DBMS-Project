@@ -1,5 +1,6 @@
 <!--TODO restore for variables-->
-<?php session_start(); ?>
+<?php session_start(); 
+?>
 <?php 
 	$nameerr = $emailerr = $policeiderr = $setpasserr= "";
 	$name = $id = $email =$password = "";

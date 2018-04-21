@@ -1,4 +1,23 @@
 <?php session_start();
+if(isset($_SESSION['username']) && isset($_SESSION['type']))
+{
+	$type = $_SESSION['type'];
+	if($type == "cop")
+	{
+		header('Location: http://localhost/DBMS-Project/copmainpage.php');
+		exit();
+	}
+	elseif($type == "user")
+	{
+		header('Location: http://localhost/DBMS-Project/usermainpage.php');
+		exit();
+	}
+	elseif($type == "judge")
+	{
+		header('Location: http://localhost/DBMS-Project/judgemainpage.php');
+		exit();
+	}
+}
 ?>
 <?php session_destroy(); ?>
 <?php session_start(); ?>

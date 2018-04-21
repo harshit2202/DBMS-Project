@@ -1,7 +1,17 @@
 <?php session_start();
-    if(!isset($_SESSION['username'])) {
-        header( 'Location: http://localhost/DBMS-Project/index.php');
-    }
+if(!isset($_SESSION['username']))
+	{
+		header('Location: http://localhost/DBMS-Project/index.php');
+		exit();
+	}
+	if(isset($_SESSION['username']))
+	{
+		if($_SESSION['type']!='user')
+		{
+			header('Location: http://localhost/DBMS-Project/index.php');
+			exit();
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -61,7 +71,7 @@
 				Contact Us
 			</div>
 			</a>			
-			<br><br><br><br><br><br><br>
+			<br><br><br><br>
 			<p style="color: grey; padding-left: 20px;">&copy; Proness2017-2018</p>
 		</div>
 

@@ -1,7 +1,17 @@
 <?php session_start();
-if(!isset($_SESSION['username'])) {
-    header( 'Location: http://localhost/DBMS-Project/index.php');
-}
+if(!isset($_SESSION['username']))
+	{
+		header('Location: http://localhost/DBMS-Project/index.php');
+		exit();
+	}
+	if(isset($_SESSION['username']))
+	{
+		if($_SESSION['type']!='judge')
+		{
+			header('Location: http://localhost/DBMS-Project/index.php');
+			exit();
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html>

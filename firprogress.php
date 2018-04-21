@@ -1,7 +1,17 @@
 <?php session_start();
-if(!isset($_SESSION['username'])) {
-    header( 'Location: http://localhost/DBMS-Project/index.php');
-}
+if(!isset($_SESSION['username']))
+	{
+		header('Location: http://localhost/DBMS-Project/index.php');
+		exit();
+	}
+	if(isset($_SESSION['username']))
+	{
+		if($_SESSION['type']!='user')
+		{
+			header('Location: http://localhost/DBMS-Project/index.php');
+			exit();
+		}
+	}
 ?>
 <?php
 	// $GLOBALS['seensuspect'] = "Yes";
@@ -45,7 +55,7 @@ if(!isset($_SESSION['username'])) {
 	<title>FIR Details</title>
 	<script type="text/javascript">
 		function toggle() {
-			if(document.getElementById('seensuspect').value == "Yes")
+			if(document.getElementById('seensuspect').value == "yes")
 				document.getElementById('optional').style.display = 'block';
 		}
 	</script>
@@ -100,7 +110,7 @@ if(!isset($_SESSION['username'])) {
 				<label for = "description">Description of crime</label>
 				<textarea disabled><?php echo $row[4]; ?></textarea>
 				<label for = "seensuspect">Was suspect seen?</label>
-				<input id = "seensuspect" type="text" name="seensuspect" disabled value=<?php echo $GLOBALS['seensuspect'] ?>>
+				<input id = "seensuspect" type="text" name="seensuspect" disabled value=<?php echo $row[7] ?>>
 				<div id = "optional"  style="display: none;">
 					<label for = "describesuspect">Description of suspect</label>
 					<textarea name="describesuspect" disabled><?php echo $row[5]; ?></textarea>
