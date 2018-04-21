@@ -5,7 +5,6 @@
     }
 ?>
 <?php
-    echo "otp sent";
 	$emaill = $_SESSION['email'];
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\Exception;
@@ -27,11 +26,11 @@
 	    $mail->Subject = 'Online FIR Portal OTP is '.$varr;
 	    $mail->Body    = '<h1>Kindly use the OTP to proceed with registeration on Online FIR Portal.</h1>';
 	    $mail->send();
-	    echo 'Message has been sent';
+	    alert( 'Message has been sent');
 	} 
 	catch (Exception $e) 
 	{
-	    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+	    alert( 'Message could not be sent. ');
 	}
 
 
@@ -47,14 +46,17 @@
         die("connection error".$conn->connect_error);
     }
 
-    echo "Connected Successfully";
     if(isset($_REQUEST['submit-btnn']))
     {
+    	$type = "";
+    	$user = "";
         $va11 = $_POST['otpp'];
+        echo "hello";
         if($_SESSION['otp'] == $va11)
         {
 
         	$type = $_SESSION['type'];
+        	$user = $_SESSION['uername'];
         	if($type =="cop")
         	{
 	            $var1 = $_SESSION['police-id'];
@@ -65,14 +67,10 @@
 	            $var6 = $_SESSION['address'];
 	            $var7 = (int)$_SESSION['phone-no'];
 	            $sql = "INSERT INTO coptable (copID,name,username,email,password,address,phoneno) VALUES ('$var1','$var2','$var3','$var4','$var5','$var6','$var7')";
-	            if ($conn->query($sql) === TRUE) 
-	            {
-	                echo "New record created successfully";
-
-	            } 
-	            else 
-	            {
-	                echo "Error: " . $sql . "<br>" . $conn->error;
+	            if ($conn->query($sql) === TRUE) {
+	                alert( "New record created successfully" );
+	            } else {
+	                alert( 'Sorry for inconvinience .. Cant be registered right now' );
 	            }
 				$conn->close();     
 			}
@@ -87,9 +85,9 @@
 	            $var7 = $_SESSION['email'];
 	            $sql = "INSERT INTO judgetable (judgeID,name,address,phoneno,username,password,email) VALUES ('$var1','$var2','$var3','$var4','$var5','$var6','$var7')";
 	            if ($conn->query($sql) === TRUE) {
-	                echo "New record created successfully";
+	                alert( "New record created successfully" );
 	            } else {
-	                echo "Error: " . $sql . "<br>" . $conn->error;
+	                alert( 'Sorry for inconvinience .. Cant be registered right now' );
 	            }
 
 	            $conn->close();      
@@ -104,9 +102,9 @@
 	            $var7 = $_SESSION['address'];
 	            $sql = "INSERT INTO usertable (name,password,username,email,phoneno,address) VALUES ('$var2','$var3','$var4','$var5','$var6','$var7')";
 	            if ($conn->query($sql) === TRUE) {
-	                echo "New record created successfully";
+	                alert( "New record created successfully" );
 	            } else {
-	                echo "Error: " . $sql . "<br>" . $conn->error;
+	                alert( 'Sorry for inconvinience .. Cant be registered right now' );
 	            }
 
 	            $conn->close();  
@@ -115,11 +113,14 @@
 
         session_destroy();
         session_start();
-        $_SESSION['username'] = $var3;
+        $_SESSION['username'] = 
         $_SESSION['type'] = $type;
         header('Location:http://localhost/DBMS-Project/uploadpic.php');
         exit();
     }
+	function alert($msg){
+		echo "<script> alert('$msg'); </script>";
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -137,7 +138,7 @@
 			<div class="mericlass">
 				<img src="user-otp.png" class="rounded-circle">
 			</div>
-			<p style="text-align: center; font-size: 25px;"><?php echo "Username"; ?></p>
+			<p style="text-align: center; font-size: 25px;"><?php echo $_SESSION['username']; ?></p>
 			<br>
 			<div class="form-group">
 				<form method="POST" >

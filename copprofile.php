@@ -18,7 +18,7 @@ if(!isset($_SESSION['username'])) {
 		die("connection error".$conn->connect_error);
 	}
 
-	$sql = "SELECT * FROM coptable WHERE username= '$user' ";   //comment
+	$sql = "SELECT * FROM coptable WHERE username= '$user' "; 
 	
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
