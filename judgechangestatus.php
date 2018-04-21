@@ -40,7 +40,7 @@ if(!isset($_SESSION['username'])) {
 	{
 		$user = $_SESSION['username'];
 
-		$sql = "SELECT copID FROM coptable WHERE username = '$user'";
+		$sql = "SELECT judgeID FROM judgetable WHERE username = '$user'";
 
 		$result = $conn->query($sql);
 		$res = mysqli_fetch_row($result);
@@ -48,8 +48,6 @@ if(!isset($_SESSION['username'])) {
 		$date_time = $_POST['newdate']." ".$_POST['newtime'].":00";
 		$status = $_POST['newstatus'];
 		$sql = " INSERT INTO judgeupdate(judgeID,firno,datetime,statement) VALUES ($res[0],$firno,'$date_time','$status') ";
-
-
 		$result = $conn->query($sql);
 
 		echo "successfully added";

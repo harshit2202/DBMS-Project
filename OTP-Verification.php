@@ -51,12 +51,11 @@
     	$type = "";
     	$user = "";
         $va11 = $_POST['otpp'];
-        echo "hello";
         if($_SESSION['otp'] == $va11)
         {
 
         	$type = $_SESSION['type'];
-        	$user = $_SESSION['uername'];
+        	$user = $_SESSION['username'];
         	if($type =="cop")
         	{
 	            $var1 = $_SESSION['police-id'];
@@ -65,7 +64,7 @@
 	            $var4 = $_SESSION['email'];
 	            $var5 = $_SESSION['password'];
 	            $var6 = $_SESSION['address'];
-	            $var7 = (int)$_SESSION['phone-no'];
+	            $var7 = $_SESSION['phone-no'];
 	            $sql = "INSERT INTO coptable (copID,name,username,email,password,address,phoneno) VALUES ('$var1','$var2','$var3','$var4','$var5','$var6','$var7')";
 	            if ($conn->query($sql) === TRUE) {
 	                alert( "New record created successfully" );
@@ -79,10 +78,9 @@
 	            $var1 = $_SESSION['judge-id'];
 	            $var2 = $_SESSION['name'];
 	            $var3 = $_SESSION['address'];
-	            $var4 = (int)$_SESSION['phone-no'];
+	            $var4 = $_SESSION['phone-no'];
 	            $var5 = $_SESSION['username'];
 	            $var6 = $_SESSION['password'];
-	            $var6 = md5($var6);
 	            $var7 = $_SESSION['email'];
 	            $sql = "INSERT INTO judgetable (judgeID,name,address,phoneno,username,password,email) VALUES ('$var1','$var2','$var3','$var4','$var5','$var6','$var7')";
 	            if ($conn->query($sql) === TRUE) {
@@ -97,10 +95,9 @@
         	{
 	            $var2 = $_SESSION['name'];
 	            $var3 = $_SESSION['password'];
-	            $var3 = md5($var3);
 	            $var4 = $_SESSION['username'];
 	            $var5 = $_SESSION['email'];
-	            $var6 = (int)$_SESSION['phone-no'];
+	            $var6 = $_SESSION['phone-no'];
 	            $var7 = $_SESSION['address'];
 	            $sql = "INSERT INTO usertable (name,password,username,email,phoneno,address) VALUES ('$var2','$var3','$var4','$var5','$var6','$var7')";
 	            if ($conn->query($sql) === TRUE) {
@@ -115,7 +112,7 @@
 
         session_destroy();
         session_start();
-        $_SESSION['username'] = 
+        $_SESSION['username'] = $user;
         $_SESSION['type'] = $type;
         header('Location:http://localhost/DBMS-Project/uploadpic.php');
         exit();

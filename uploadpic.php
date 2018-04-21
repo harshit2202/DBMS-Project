@@ -46,6 +46,7 @@ if(!isset($_SESSION['username'])) {
 		    echo "Sorry, your file is too large.";
 		    $upload = 0;
 		}
+		echo $newfilename;
 
 		if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], ("upload/".$newfilename) ))
 		{
@@ -62,12 +63,19 @@ if(!isset($_SESSION['username'])) {
 			    	exit();
 			    }
 		    }
-		    if($var10 == "citizen")
+		    if($var10 == "user")
 		    {
 		    	$sql = "UPDATE usertable SET photoaddress='$addr' where username = '$var11' ";
 		    	if($upload ==1)
 			    {
-			    	$conn->query($sql);
+			    	try {
+			    		$conn->query($sql);
+			    		
+			    	} 
+			    	catch (mysqli_sql_exception $exception) {
+                        echo $exception->getMessage();
+                        echo "done 1\n";
+                    }
 			    	header('Location:http://localhost/DBMS-Project/usermainpage.php');
 			    	exit();
 			    }
@@ -77,7 +85,14 @@ if(!isset($_SESSION['username'])) {
 		    	$sql = "UPDATE judgetable SET photoaddress='$addr' where username = '$var11' ";
 		    	if($upload ==1)
 			    {
-			    	$conn->query($sql);
+			    	try {
+			    		$conn->query($sql);
+			    		
+			    	} 
+			    	catch (mysqli_sql_exception $exception) {
+                        echo $exception->getMessage();
+                        echo "done 1\n";
+                    }
 			    	header('Location:http://localhost/DBMS-Project/judgemainpage.php');
 			    	exit();
 			    }

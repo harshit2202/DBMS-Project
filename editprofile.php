@@ -122,7 +122,7 @@ if(!isset($_SESSION['username'])) {
 
 
 				<p style="margin-bottom: 0;">Contact number : </p>
-				<input type="text" name="phoneno" placeholder=<?php echo $row['phoneno'];?>>
+				<input type="number" name="phoneno" placeholder=<?php echo $row['phoneno'];?>>
 
 				<br>
 
@@ -143,7 +143,7 @@ if(!isset($_SESSION['username'])) {
 			</div>
 
 			<div class="information" id = "judgedata" style="display: none;">
-			<form>
+			<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method = POST>
 				<p style="margin-bottom: 0;">JUDGE Registration number : </p>
 				<p name="judgeID" style="font-size: 25px;"> <?php echo $row['judgeID'];?>  </p>
 				
@@ -163,7 +163,7 @@ if(!isset($_SESSION['username'])) {
 				
 
 				<p style="margin-bottom: 0;">Contact number : </p>
-				<input type="text" name="phoneno" placeholder=<?php echo $row['phoneno'];?>>
+				<input type="number" name="phoneno" placeholder=<?php echo $row['phoneno'];?>>
 
 				<br>
 
@@ -181,7 +181,7 @@ if(!isset($_SESSION['username'])) {
 			</div>
 
 			<div class="information" id = "userdata" style="display: none;">
-			<form>
+			<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method = POST>
 				
 				<p style="margin-bottom: 0;">Username : </p>
 				<p name="username" style="font-size: 25px;"> <?php echo $row['username'];?>  </p>
@@ -198,7 +198,7 @@ if(!isset($_SESSION['username'])) {
 
 
 				<p style="margin-bottom: 0;">Contact number : </p>
-				<input type="text" name="phoneno" placeholder=<?php echo $row['phoneno'];?>>
+				<input type="number" name="phoneno" placeholder=<?php echo $row['phoneno'];?>>
 
 				<br>
 

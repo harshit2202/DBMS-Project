@@ -105,7 +105,6 @@
 
 	<div class="leftt left-panel">
 		<p style="font-size: 20px;">Important Information</p>
-		<li><a href="missinglist.html">Missing List</a> </li>
 		<li><a href="http://localhost/DBMS-Project/wantedpage.php">Most Wanted Criminals</a></li>
 		<br><br><br><br><br><br><br><br><br><br><br>
 		<p style="color: grey;">&copy; Proness2017-2018</p>

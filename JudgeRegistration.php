@@ -99,8 +99,7 @@
 				<p style="font-size: 35px;">Online FIR Registration Portal</p>
 				<br><br><br>
 				<p style="font-size: 20px;">Important Information</p>
-				<li><a href="missinglist.html">Missing List</a> </li>
-				<li><a href="wantedcriminals.html">Most Wanted Criminals</a></li>
+						<li><a href="http://localhost/DBMS-Project/wantedpage.php">Most Wanted Criminals</a></li>
 
 				<br><br><br><br><br><br>
 				<p style="margin-bottom: 0;">Already Registered?</p>
