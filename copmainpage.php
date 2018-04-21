@@ -32,6 +32,12 @@ if(!isset($_SESSION['username'])) {
 			</div>
 			</a>
 
+			<a href="http://localhost/DBMS-Project/editprofile.php" class = "anchor" >
+                <div class = "clickable">
+                   Edit Profile
+                </div>
+            </a>
+
 			<a href="http://localhost/DBMS-Project/showcopfir.php" class = "anchor" >
 			<div class = "clickable">
 				Check FIR Records

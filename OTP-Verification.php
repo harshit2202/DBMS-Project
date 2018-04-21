@@ -82,6 +82,7 @@
 	            $var4 = (int)$_SESSION['phone-no'];
 	            $var5 = $_SESSION['username'];
 	            $var6 = $_SESSION['password'];
+	            $var6 = md5($var6);
 	            $var7 = $_SESSION['email'];
 	            $sql = "INSERT INTO judgetable (judgeID,name,address,phoneno,username,password,email) VALUES ('$var1','$var2','$var3','$var4','$var5','$var6','$var7')";
 	            if ($conn->query($sql) === TRUE) {
@@ -96,6 +97,7 @@
         	{
 	            $var2 = $_SESSION['name'];
 	            $var3 = $_SESSION['password'];
+	            $var3 = md5($var3);
 	            $var4 = $_SESSION['username'];
 	            $var5 = $_SESSION['email'];
 	            $var6 = (int)$_SESSION['phone-no'];
