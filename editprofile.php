@@ -75,6 +75,9 @@ if(!isset($_SESSION['username'])) {
 	 }
 
 
+	 function showsmall(){
+	 	alert("Your Changes Have Been Saved.");
+	 }
 	</script>
 
 </head>
@@ -97,27 +100,26 @@ if(!isset($_SESSION['username'])) {
 			</div>
 			
 			<div class="information" id = "copdata" style="display: none;">
-			<form>
+			<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method = POST>
 				<p style="margin-bottom: 0;">COP Registration number : </p>
 					<p name="copID" style="font-size: 25px;font-weight:bold;"> <?php echo $row['copID'];?>  </p>
 
-				<br>
+
 
 				<p style="margin-bottom: 0;">Username : </p>
 				<p name="username" style="font-size: 25px;font-weight:bold;"> <?php echo $row['username'];?>  </p>
 
-				<br>
+			
 
 				<p style="margin-bottom: 0;">Email - ID : </p>
 				<p name="email" style="font-size: 25px;font-weight:bold;"> <?php echo $row['email'];?>  </p>
 
-				<br>
+				
 
 				<p style="margin-bottom: 0;">Name : </p>
 				<input type="text" name="name" placeholder=<?php echo $row['name'];?>>
 				<br>			
 
-				
 
 				<p style="margin-bottom: 0;">Contact number : </p>
 				<input type="text" name="phoneno" placeholder=<?php echo $row['phoneno'];?>>
@@ -126,7 +128,16 @@ if(!isset($_SESSION['username'])) {
 
 				<p style="margin-bottom: 0;">Address : </p>
 				<input type="text" name="address" placeholder=<?php echo $row['address'];?>>
-				<button type="submit" class="btn btn-primary" name="submit-btnn" >Submit</button>
+				<br>
+				
+
+				<p style="margin-bottom: 0;">Change Password </p>
+				<input type="password" name="password" placeholder="Enter New Password">
+				<br>
+
+
+				<button type="submit" class="btn btn-primary" name="submit-btnn" onclick="showsmall()" >Submit</button>
+				<br>
 
 			</form>		
 			</div>
@@ -135,20 +146,17 @@ if(!isset($_SESSION['username'])) {
 			<form>
 				<p style="margin-bottom: 0;">JUDGE Registration number : </p>
 				<p name="judgeID" style="font-size: 25px;"> <?php echo $row['judgeID'];?>  </p>
-
-				<br>
+				
 
 
 				<p style="margin-bottom: 0;">Username : </p>
 				<p name="username" style="font-size: 25px;"> <?php echo $row['username'];?>  </p>
 
-				<br>
 
 				<p style="margin-bottom: 0;">Email - ID : </p>
 				<p name="email" style="font-size: 25px;font-weight:bold;"> <?php echo $row['email'];?>  </p>
 
-				<br>
-
+			
 				<p style="margin-bottom: 0;">Name : </p>
 				<input type="text" name="name" placeholder=<?php echo $row['name'];?>>
 				<br>
@@ -161,8 +169,14 @@ if(!isset($_SESSION['username'])) {
 
 				<p style="margin-bottom: 0;">Address : </p>
 				<input type="text" name="address" placeholder=<?php echo $row['address'];?>>
-				<button type="submit" class="btn btn-primary" name="submit-btnn" >Submit</button>
+				<br>
 
+				<p style="margin-bottom: 0;">Change Password </p>
+				<input type="password" name="password" placeholder="Enter New Password">
+				<br>		
+
+				<button type="submit" class="btn btn-primary" name="submit-btnn" onclick="showsmall()" >Submit</button>
+				<br>
 			</form>		
 			</div>
 
@@ -172,12 +186,11 @@ if(!isset($_SESSION['username'])) {
 				<p style="margin-bottom: 0;">Username : </p>
 				<p name="username" style="font-size: 25px;"> <?php echo $row['username'];?>  </p>
 
-				<br>
 
 
 				<p style="margin-bottom: 0;">Email - ID : </p>
 				<p name="email" style="font-size: 25px;font-weight:bold;"> <?php echo $row['email'];?>  </p>
-				<br>
+		
 				
 				<p style="margin-bottom: 0;">Name : </p>
 				<input type="text" name="name" placeholder=<?php echo $row['name'];?>>
@@ -191,7 +204,14 @@ if(!isset($_SESSION['username'])) {
 
 				<p style="margin-bottom: 0;">Address : </p>
 				<input type="text" name="address" placeholder=<?php echo $row['address'];?>>
-				<button type="submit" class="btn btn-primary" name="submit-btnn" >Submit</button>
+				<br>
+
+				<p style="margin-bottom: 0;">Change Password </p>
+				<input type="password" name="password" placeholder="Enter New Password">
+
+				<button type="submit" class="btn btn-primary" name="submit-btnn" onclick="showsmall()" >Submit</button>
+				<br>
+
 
 			</form>
 			<?php 
@@ -206,3 +226,38 @@ if(!isset($_SESSION['username'])) {
 
 </body>
 </html>
+<?php 
+if(isset($_REQUEST['submit-btnn']))	
+	{
+		$servername = "localhost";
+		$username = "root";
+		$password ="";
+		$dbname = "DBMSProject";
+
+		$conn = new mysqli($servername,$username,$password,$dbname);
+		$var1 = $_POST['name'];
+		$var2 = $_POST['phoneno'];
+		$var3 = $_POST['address'];
+		$var4 = $_POST['password'];
+		$var4 = md5($var4);
+		$var5 = $_SESSION['username'];
+
+		if($_SESSION['type']=='cop'){
+		
+			$sql = "UPDATE coptable SET name='$var1',phoneno='$var2',address='$var3',password='$var4' WHERE username = '$var5'";
+			$result = $conn->query($sql);
+			$conn->close();
+		}
+
+		else if ($_SESSION['type']=='user') {
+		 	$sql = "UPDATE usertable SET name='$var1',phoneno='$var2',address='$var3',password='$var4' WHERE username = '$var5'";
+			$result = $conn->query($sql);
+			$conn->close();
+		}
+		else if ($_SESSION['type']=='judge') {
+		 	$sql = "UPDATE judgetable SET name='$var1',phoneno='$var2',address='$var3',password='$var4' WHERE username = '$var5'";
+			$result = $conn->query($sql);
+			$conn->close();
+		}  
+	}
+?>
