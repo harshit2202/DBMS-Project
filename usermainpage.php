@@ -31,6 +31,12 @@
 				Profile
 			</div>
 			</a>
+			
+			<a href="http://localhost/DBMS-Project/editprofile.php" class = "anchor" >
+                <div class = "clickable">
+                   Edit Profile
+                </div>
+            </a>
 
 			<a href="http://localhost/DBMS-Project/lodgeFIR.php" class = "anchor" >
 			<div class = "clickable">
