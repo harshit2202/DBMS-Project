@@ -2,7 +2,6 @@
 if(!isset($_SESSION['username'])) {
     header( 'Location: http://localhost/DBMS-Project/index.php');
 }
-echo "<script> showdata(".$_SESSION['type'].")</script>";
 ?>
 
 <?php
@@ -42,9 +41,21 @@ echo "<script> showdata(".$_SESSION['type'].")</script>";
 	}  
 
 ?>
-<script type="text/javascript">
-	function showdata(var x){
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="editprofile.css">
+	<title><?php echo $_SESSION['username']; ?> - Profile</title>
+
+
+	<script type="text/javascript">
+	function showdata(x){
 		if(x == 'user'){
+			
 			 document.getElementById('userdata').style.display= 'block';
 			  document.getElementById('copdata').style.display= 'none';
 			   document.getElementById('judgedata').style.display= 'none';
@@ -55,24 +66,16 @@ echo "<script> showdata(".$_SESSION['type'].")</script>";
 			  document.getElementById('copdata').style.display= 'block';
 			   document.getElementById('judgedata').style.display = 'none';
 		}
-	// 	else if(x == 'judge'){
-	// 		 document.getElementById('userdata').style.display= 'none';
-	// 		  document.getElementById('copdata').style.display= 'none';
-	// 		   document.getElementById('judgedata').style.display= 'block';
-	// 	}
+		else if(x == 'judge'){
+			 document.getElementById('userdata').style.display= 'none';
+			  document.getElementById('copdata').style.display= 'none';
+			   document.getElementById('judgedata').style.display= 'block';
+		}
 
-	// }
+	 }
 
 
-</script>
-
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-	<link rel="stylesheet" type="text/css" href="editprofile.css">
-	<title><?php echo $_SESSION['username']; ?> - Profile</title>
+	</script>
 
 </head>
 <body>
@@ -93,28 +96,28 @@ echo "<script> showdata(".$_SESSION['type'].")</script>";
 				<p style="text-align: center;padding-right: 15%;"><?php echo $row["name"]; ?></p>
 			</div>
 			
-			<div class="information" id = "copdata" >
+			<div class="information" id = "copdata" style="display: none;">
 			<form>
 				<p style="margin-bottom: 0;">COP Registration number : </p>
-					<p name="copID" style="font-size: 25px;"> <?php echo $row['copID'];?>  </p>
+					<p name="copID" style="font-size: 25px;font-weight:bold;"> <?php echo $row['copID'];?>  </p>
 
 				<br>
 
 				<p style="margin-bottom: 0;">Username : </p>
-				<p name="username" style="font-size: 25px;"> <?php echo $row['username'];?>  </p>
+				<p name="username" style="font-size: 25px;font-weight:bold;"> <?php echo $row['username'];?>  </p>
+
+				<br>
+
+				<p style="margin-bottom: 0;">Email - ID : </p>
+				<p name="email" style="font-size: 25px;font-weight:bold;"> <?php echo $row['email'];?>  </p>
 
 				<br>
 
 				<p style="margin-bottom: 0;">Name : </p>
 				<input type="text" name="name" placeholder=<?php echo $row['name'];?>>
-				<br>
+				<br>			
 
 				
-
-				<p style="margin-bottom: 0;">Email - ID : </p>
-				<input type="text" name="email" placeholder=<?php echo $row['email'];?>>
-
-				<br>
 
 				<p style="margin-bottom: 0;">Contact number : </p>
 				<input type="text" name="phoneno" placeholder=<?php echo $row['phoneno'];?>>
@@ -128,28 +131,28 @@ echo "<script> showdata(".$_SESSION['type'].")</script>";
 			</form>		
 			</div>
 
-			<div class="information" id = "judgedata">
+			<div class="information" id = "judgedata" style="display: none;">
 			<form>
-				<!-- <p style="margin-bottom: 0;">JUDGE Registration number : </p>
+				<p style="margin-bottom: 0;">JUDGE Registration number : </p>
 				<p name="judgeID" style="font-size: 25px;"> <?php echo $row['judgeID'];?>  </p>
 
 				<br>
- -->
+
 
 				<p style="margin-bottom: 0;">Username : </p>
 				<p name="username" style="font-size: 25px;"> <?php echo $row['username'];?>  </p>
 
 				<br>
 
+				<p style="margin-bottom: 0;">Email - ID : </p>
+				<p name="email" style="font-size: 25px;font-weight:bold;"> <?php echo $row['email'];?>  </p>
+
+				<br>
+
 				<p style="margin-bottom: 0;">Name : </p>
 				<input type="text" name="name" placeholder=<?php echo $row['name'];?>>
 				<br>
-
-
-				<p style="margin-bottom: 0;">Email - ID : </p>
-				<input type="text" name="email" placeholder=<?php echo $row['email'];?>>
-
-				<br>
+				
 
 				<p style="margin-bottom: 0;">Contact number : </p>
 				<input type="text" name="phoneno" placeholder=<?php echo $row['phoneno'];?>>
@@ -163,23 +166,23 @@ echo "<script> showdata(".$_SESSION['type'].")</script>";
 			</form>		
 			</div>
 
-			<div class="information" id = "userdata">
+			<div class="information" id = "userdata" style="display: none;">
 			<form>
 				
 				<p style="margin-bottom: 0;">Username : </p>
 				<p name="username" style="font-size: 25px;"> <?php echo $row['username'];?>  </p>
 
 				<br>
+
+
+				<p style="margin-bottom: 0;">Email - ID : </p>
+				<p name="email" style="font-size: 25px;font-weight:bold;"> <?php echo $row['email'];?>  </p>
+				<br>
 				
 				<p style="margin-bottom: 0;">Name : </p>
 				<input type="text" name="name" placeholder=<?php echo $row['name'];?>>
-				<br>
-			
+				<br>		
 
-				<p style="margin-bottom: 0;">Email - ID : </p>
-				<input type="text" name="email" placeholder=<?php echo $row['email'];?>>
-
-				<br>
 
 				<p style="margin-bottom: 0;">Contact number : </p>
 				<input type="text" name="phoneno" placeholder=<?php echo $row['phoneno'];?>>
@@ -190,7 +193,10 @@ echo "<script> showdata(".$_SESSION['type'].")</script>";
 				<input type="text" name="address" placeholder=<?php echo $row['address'];?>>
 				<button type="submit" class="btn btn-primary" name="submit-btnn" >Submit</button>
 
-			</form>		
+			</form>
+			<?php 
+				 echo "<script> showdata('".$_SESSION['type']."'); </script>";
+			 ?>		
 			</div>
 
 		</div>

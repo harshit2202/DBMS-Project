@@ -1,5 +1,5 @@
 <?php 
-$var = "qq";
+$var = "hiii";
 $var2 = md5($var);
-echo "asdasd".$var2."FUCKKK";
+echo "asdasd(".$var2.")asdsad";
  ?>
