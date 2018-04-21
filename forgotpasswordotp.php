@@ -6,6 +6,7 @@ if(!isset($_SESSION['otp'])) {
 ?>
 <?php
 	$emaill = $_SESSION['email'];
+	echo $emaill;
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\Exception;
 	require 'vendor/autoload.php';
