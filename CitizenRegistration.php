@@ -55,7 +55,7 @@
 				$_SESSION['name']=$_POST['name'];
 				$_SESSION['email']=$_POST['email'];
 				$_SESSION['username']=$_POST['username'];
-				$_SESSION['password']=$_POST['password'];
+				$_SESSION['password']=md5($_POST['password']);
 				$_SESSION['address']=$_POST['address'];
 				$_SESSION['phone-no']=$_POST['phone-no'];
 				$_SESSION['otp']=mt_rand(1000,9999);
