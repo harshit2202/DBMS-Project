@@ -2,7 +2,9 @@
 if(!isset($_SESSION['username'])) {
     header( 'Location: http://localhost/DBMS-Project/index.php');
 }
+echo "<script> showdata(".$_SESSION['type'].")</script>";
 ?>
+
 <?php
 	$type = $_SESSION['type'];
 	$user = $_SESSION['username'];
@@ -18,25 +20,52 @@ if(!isset($_SESSION['username'])) {
 		die("connection error".$conn->connect_error);
 	}
 
-	if($_SESSION['type']=='cop')
-		$tabletype = 'coptable';
-	elseif ($_SESSION['type']=='citizen') {
-	 	$tabletype = 'citizentable';
+	if($_SESSION['type']=='cop'){
+		
+		$sql = "SELECT * FROM coptable WHERE username= '$user' ";   //comment
+		$result = $conn->query($sql);
+		$row = $result->fetch_assoc();
+		$conn->close();
 	}
-	elseif ($_SESSION['type']=='judge') {
-	 	$tabletype = 'judge';
+
+	else if ($_SESSION['type']=='user') {
+	 	$sql = "SELECT * FROM usertable WHERE username= '$user' ";   //comment
+		$result = $conn->query($sql);
+		$row = $result->fetch_assoc();
+		$conn->close();
+	}
+	else if ($_SESSION['type']=='judge') {
+	 	$sql = "SELECT * FROM judgetable WHERE username= '$user' ";   //comment
+		$result = $conn->query($sql);
+		$row = $result->fetch_assoc();
+		$conn->close();
 	}  
 
-
-
-
-
-	$sql = "SELECT * FROM coptable WHERE username= '$user' ";   //comment
-	
-	$result = $conn->query($sql);
-	$row = $result->fetch_assoc();
-	$conn->close();
 ?>
+<script type="text/javascript">
+	function showdata(var x){
+		if(x == 'user'){
+			 document.getElementById('userdata').style.display= 'block';
+			  document.getElementById('copdata').style.display= 'none';
+			   document.getElementById('judgedata').style.display= 'none';
+
+		}
+		else if(x == 'cop'){
+			document.getElementById('userdata').style.display= 'none';
+			  document.getElementById('copdata').style.display= 'block';
+			   document.getElementById('judgedata').style.display = 'none';
+		}
+	// 	else if(x == 'judge'){
+	// 		 document.getElementById('userdata').style.display= 'none';
+	// 		  document.getElementById('copdata').style.display= 'none';
+	// 		   document.getElementById('judgedata').style.display= 'block';
+	// 	}
+
+	// }
+
+
+</script>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,10 +93,15 @@ if(!isset($_SESSION['username'])) {
 				<p style="text-align: center;padding-right: 15%;"><?php echo $row["name"]; ?></p>
 			</div>
 			
-			<div class="information">
+			<div class="information" id = "copdata" >
 			<form>
 				<p style="margin-bottom: 0;">COP Registration number : </p>
-				<input type="text" name="username" placeholder=<?php echo $row['copID'];?>>
+					<p name="copID" style="font-size: 25px;"> <?php echo $row['copID'];?>  </p>
+
+				<br>
+
+				<p style="margin-bottom: 0;">Username : </p>
+				<p name="username" style="font-size: 25px;"> <?php echo $row['username'];?>  </p>
 
 				<br>
 
@@ -75,10 +109,72 @@ if(!isset($_SESSION['username'])) {
 				<input type="text" name="name" placeholder=<?php echo $row['name'];?>>
 				<br>
 
-				<p style="margin-bottom: 0;">Username : </p>
-				<input type="text" name="username" placeholder=<?php echo $row['username'];?>>
+				
+
+				<p style="margin-bottom: 0;">Email - ID : </p>
+				<input type="text" name="email" placeholder=<?php echo $row['email'];?>>
 
 				<br>
+
+				<p style="margin-bottom: 0;">Contact number : </p>
+				<input type="text" name="phoneno" placeholder=<?php echo $row['phoneno'];?>>
+
+				<br>
+
+				<p style="margin-bottom: 0;">Address : </p>
+				<input type="text" name="address" placeholder=<?php echo $row['address'];?>>
+				<button type="submit" class="btn btn-primary" name="submit-btnn" >Submit</button>
+
+			</form>		
+			</div>
+
+			<div class="information" id = "judgedata">
+			<form>
+				<!-- <p style="margin-bottom: 0;">JUDGE Registration number : </p>
+				<p name="judgeID" style="font-size: 25px;"> <?php echo $row['judgeID'];?>  </p>
+
+				<br>
+ -->
+
+				<p style="margin-bottom: 0;">Username : </p>
+				<p name="username" style="font-size: 25px;"> <?php echo $row['username'];?>  </p>
+
+				<br>
+
+				<p style="margin-bottom: 0;">Name : </p>
+				<input type="text" name="name" placeholder=<?php echo $row['name'];?>>
+				<br>
+
+
+				<p style="margin-bottom: 0;">Email - ID : </p>
+				<input type="text" name="email" placeholder=<?php echo $row['email'];?>>
+
+				<br>
+
+				<p style="margin-bottom: 0;">Contact number : </p>
+				<input type="text" name="phoneno" placeholder=<?php echo $row['phoneno'];?>>
+
+				<br>
+
+				<p style="margin-bottom: 0;">Address : </p>
+				<input type="text" name="address" placeholder=<?php echo $row['address'];?>>
+				<button type="submit" class="btn btn-primary" name="submit-btnn" >Submit</button>
+
+			</form>		
+			</div>
+
+			<div class="information" id = "userdata">
+			<form>
+				
+				<p style="margin-bottom: 0;">Username : </p>
+				<p name="username" style="font-size: 25px;"> <?php echo $row['username'];?>  </p>
+
+				<br>
+				
+				<p style="margin-bottom: 0;">Name : </p>
+				<input type="text" name="name" placeholder=<?php echo $row['name'];?>>
+				<br>
+			
 
 				<p style="margin-bottom: 0;">Email - ID : </p>
 				<input type="text" name="email" placeholder=<?php echo $row['email'];?>>
